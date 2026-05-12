@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnBottom = new Guna.UI2.WinForms.Guna2Panel();
+            this.playBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +45,6 @@
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.pnMain = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.playBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.timeMusic = new System.Windows.Forms.Timer(this.components);
             this.pnBottom.SuspendLayout();
             this.pnLeft.SuspendLayout();
@@ -56,11 +56,27 @@
             this.pnBottom.Controls.Add(this.playBar);
             this.pnBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnBottom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.pnBottom.Location = new System.Drawing.Point(0, 638);
-            this.pnBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnBottom.Location = new System.Drawing.Point(0, 519);
+            this.pnBottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnBottom.Name = "pnBottom";
-            this.pnBottom.Size = new System.Drawing.Size(1200, 100);
+            this.pnBottom.Size = new System.Drawing.Size(900, 81);
             this.pnBottom.TabIndex = 0;
+            // 
+            // playBar
+            // 
+            this.playBar.BorderRadius = 6;
+            this.playBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.playBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.playBar.Location = new System.Drawing.Point(358, 38);
+            this.playBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playBar.Name = "playBar";
+            this.playBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.playBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.playBar.Size = new System.Drawing.Size(225, 13);
+            this.playBar.TabIndex = 0;
+            this.playBar.Text = "guna2ProgressBar1";
+            this.playBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.playBar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.playBar_MouseClick);
             // 
             // pnLeft
             // 
@@ -71,10 +87,10 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.pnLeft.Size = new System.Drawing.Size(200, 638);
+            this.pnLeft.Padding = new System.Windows.Forms.Padding(15, 16, 0, 0);
+            this.pnLeft.Size = new System.Drawing.Size(150, 519);
             this.pnLeft.TabIndex = 1;
             // 
             // guna2HtmlLabel1
@@ -82,10 +98,10 @@
             this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 22);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(17, 18);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(212, 60);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(159, 49);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = "<b><span style=\"color: #1DB954;\">My Music\r\n</span> </b>";
             // 
@@ -102,10 +118,10 @@
             this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnSetting.Location = new System.Drawing.Point(12, 258);
-            this.btnSetting.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnSetting.Location = new System.Drawing.Point(9, 210);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(180, 50);
+            this.btnSetting.Size = new System.Drawing.Size(135, 41);
             this.btnSetting.TabIndex = 2;
             this.btnSetting.Text = "Cài Đặt";
             this.btnSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -123,10 +139,10 @@
             this.btnList.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnList.ForeColor = System.Drawing.Color.White;
             this.btnList.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnList.Location = new System.Drawing.Point(12, 187);
-            this.btnList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnList.Location = new System.Drawing.Point(9, 152);
+            this.btnList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(180, 50);
+            this.btnList.Size = new System.Drawing.Size(135, 41);
             this.btnList.TabIndex = 1;
             this.btnList.Text = "Thư Viện";
             this.btnList.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -145,10 +161,10 @@
             this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnHome.Location = new System.Drawing.Point(12, 113);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnHome.Location = new System.Drawing.Point(9, 92);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(180, 50);
+            this.btnHome.Size = new System.Drawing.Size(135, 41);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -160,10 +176,10 @@
             this.pnTop.Controls.Add(this.Max);
             this.pnTop.Controls.Add(this.Close);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(200, 0);
-            this.pnTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnTop.Location = new System.Drawing.Point(150, 0);
+            this.pnTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1000, 54);
+            this.pnTop.Size = new System.Drawing.Size(750, 44);
             this.pnTop.TabIndex = 2;
             // 
             // Minizime
@@ -173,10 +189,9 @@
             this.Minizime.FillColor = System.Drawing.Color.Transparent;
             this.Minizime.HoverState.FillColor = System.Drawing.Color.Gray;
             this.Minizime.IconColor = System.Drawing.Color.White;
-            this.Minizime.Location = new System.Drawing.Point(749, 15);
-            this.Minizime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Minizime.Location = new System.Drawing.Point(562, 12);
             this.Minizime.Name = "Minizime";
-            this.Minizime.Size = new System.Drawing.Size(60, 36);
+            this.Minizime.Size = new System.Drawing.Size(45, 29);
             this.Minizime.TabIndex = 2;
             // 
             // Max
@@ -186,10 +201,9 @@
             this.Max.FillColor = System.Drawing.Color.Transparent;
             this.Max.HoverState.FillColor = System.Drawing.Color.Gray;
             this.Max.IconColor = System.Drawing.Color.White;
-            this.Max.Location = new System.Drawing.Point(840, 15);
-            this.Max.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Max.Location = new System.Drawing.Point(630, 12);
             this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(60, 36);
+            this.Max.Size = new System.Drawing.Size(45, 29);
             this.Max.TabIndex = 1;
             // 
             // Close
@@ -198,10 +212,9 @@
             this.Close.FillColor = System.Drawing.Color.Transparent;
             this.Close.HoverState.FillColor = System.Drawing.Color.Gray;
             this.Close.IconColor = System.Drawing.Color.White;
-            this.Close.Location = new System.Drawing.Point(924, 15);
-            this.Close.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Close.Location = new System.Drawing.Point(693, 12);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(60, 36);
+            this.Close.Size = new System.Drawing.Size(45, 29);
             this.Close.TabIndex = 0;
             // 
             // guna2DragControl1
@@ -223,9 +236,10 @@
             // 
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.pnMain.Location = new System.Drawing.Point(200, 54);
+            this.pnMain.Location = new System.Drawing.Point(150, 44);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1000, 584);
+            this.pnMain.Size = new System.Drawing.Size(750, 475);
             this.pnMain.TabIndex = 3;
             // 
             // guna2DragControl2
@@ -233,21 +247,6 @@
             this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
             this.guna2DragControl2.TargetControl = this.pnTop;
             this.guna2DragControl2.UseTransparentDrag = true;
-            // 
-            // playBar
-            // 
-            this.playBar.BorderRadius = 6;
-            this.playBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.playBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.playBar.Location = new System.Drawing.Point(477, 47);
-            this.playBar.Name = "playBar";
-            this.playBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
-            this.playBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
-            this.playBar.Size = new System.Drawing.Size(300, 16);
-            this.playBar.TabIndex = 0;
-            this.playBar.Text = "guna2ProgressBar1";
-            this.playBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.playBar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.playBar_MouseClick);
             // 
             // timeMusic
             // 
@@ -257,17 +256,17 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(1200, 738);
+            this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.pnTop);
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1200, 738);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
