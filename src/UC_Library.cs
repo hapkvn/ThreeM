@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO; // Cần thiết để sử dụng Path.GetFileName
 
-namespace Kiemtragiuaki
+namespace ThreeM
 {
     public partial class UC_Library : UserControl
     {
