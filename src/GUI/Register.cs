@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
-<<<<<<< HEAD
+
 namespace ThreeM
-=======
-namespace Kiemtragiuaki
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+
 {
     public partial class Register : Form
     {
@@ -24,25 +23,25 @@ namespace Kiemtragiuaki
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             string userName = txtname.Text.Trim();
             string fullName = txtfullName.Text.Trim();
             string pass = txtpassword.Text.Trim();
-            string vePass = txtpassword.Text.Trim();
+            string vePass = txtVePass.Text.Trim();
 
-            if(string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(fullName)
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(fullName)
                 || string.IsNullOrEmpty(pass) || string.IsNullOrEmpty(vePass))
             {
                 MessageBox.Show("Vui lòng nhập đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(pass != vePass)
+            if (pass != vePass)
             {
                 MessageBox.Show("mật khẩu không khớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             try
             {
-                using(var connection = DatabaseConnection.GetConnection())
+                using (var connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
                     string sql = "INSERT INTO Users (Username, Password, FullName) VALUES (@user, @pass, @name)";
@@ -58,20 +57,20 @@ namespace Kiemtragiuaki
                         this.Hide();
                         this.Close();
                     }
-                   
+
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Đăng ký thất bại!\n" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
 
-=======
-            
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+
         }
     }
 }
