@@ -143,12 +143,6 @@
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="DTO\Song.cs" />
     <Compile Include="DTO\User.cs" />
-    <Compile Include="GUI\FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,9 +163,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
