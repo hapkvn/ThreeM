@@ -44,7 +44,14 @@ namespace Kiemtragiuaki.GUI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            renderPage(new UC_Home());
+            UC_Home home = new UC_Home();
+
+            // Lắng nghe sự kiện phát nhạc từ UC_Home
+            home.OnSongSelected = (musicPath) => {
+                PlayMusic(musicPath); // Hàm này trong Form1 của ông sẽ lo phần NAudio và PlayBar
+            };
+
+            renderPage(home);
         }
 
         private void btnList_Click(object sender, EventArgs e)
@@ -82,35 +89,41 @@ namespace Kiemtragiuaki.GUI
             playBar.MouseClick += playBar_MouseClick;
         }
 
-        private void PlayMusic (string file)
+        private void PlayMusic(string file)
         {
             try
             {
+                // 1. Chuyển đổi tất cả thành dấu gạch chéo chuẩn của Windows
+                string pathChuan = file.Replace("/", "\\");
+
+                // 2. Kiểm tra thực tế file có tồn tại không trước khi nạp vào NAudio
+                if (!System.IO.File.Exists(pathChuan))
+                {
+                    MessageBox.Show("Lỗi: Không tìm thấy file tại:\n" + pathChuan, "Sai đường dẫn");
+                    return;
+                }
+
                 outputDevice?.Stop();
                 outputDevice?.Dispose();
                 audioFile?.Dispose();
 
-                audioFile = new AudioFileReader(file);
+                audioFile = new AudioFileReader(pathChuan); // Dùng pathChuan đã sửa
                 outputDevice = new WaveOutEvent();
                 outputDevice.Init(audioFile);
                 outputDevice.Play();
 
-                // Cập nhật tên bài hát đang phát lên giao diện (nếu có label)
-                //lblNowPlaying.Text = Path.GetFileNameWithoutExtension(file);
-
-                // Bắt đầu chạy Timer để thanh Progress nhảy theo nhạc
                 playBar.Maximum = (int)audioFile.TotalTime.TotalSeconds;
                 timeMusic.Start();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể phát file này: " + ex.Message);
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message);
             }
         }
 
-      
 
-        
+
+
 
         private void playBar_MouseClick(object sender, MouseEventArgs e)
         {

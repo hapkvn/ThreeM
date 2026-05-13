@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kiemtragiuaki.DTO
 {
-    internal class Song
+    public class Song
     {
         public string SongID { get; set; }     // quy ước là :MS_01
         public string Title { get; set; }

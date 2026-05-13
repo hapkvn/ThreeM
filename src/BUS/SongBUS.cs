@@ -27,5 +27,13 @@ namespace Kiemtragiuaki.BUS
 
             return true;
         }
+
+        public List<Song> GetSongsByCategoryID(string categoryID)
+        {
+           
+            return _songDAL.GetSongsByCategoryID(categoryID);
+        }
+
+
     }
 }
