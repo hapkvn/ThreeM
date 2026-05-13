@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //sử dụng thư viện để dùng sql
 using System.Data.SqlClient;
+<<<<<<< HEAD
 using MySqlConnector;
 
 namespace ThreeM
+=======
+
+namespace Kiemtragiuaki
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 {
     public partial class login : Form
     {
@@ -25,6 +30,7 @@ namespace ThreeM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             //lẫy dữ liệu từ text box
             string username = txtuer.Text.Trim();
             string pass = txtPassword.Text.Trim();
@@ -72,6 +78,8 @@ namespace ThreeM
 
         private void login_Load(object sender, EventArgs e)
         {
+=======
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 
         }
     }

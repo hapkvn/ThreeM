@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,3 +21,6 @@ namespace ThreeM
         }
     }
 }
+=======
+﻿Console.WriteLine("Hello, World!");
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0

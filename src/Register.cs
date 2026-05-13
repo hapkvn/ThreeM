@@ -8,7 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+<<<<<<< HEAD
 namespace ThreeM
+=======
+namespace Kiemtragiuaki
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 {
     public partial class Register : Form
     {
@@ -20,6 +24,7 @@ namespace ThreeM
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             string userName = txtname.Text.Trim();
             string fullName = txtfullName.Text.Trim();
             string pass = txtpassword.Text.Trim();
@@ -64,6 +69,9 @@ namespace ThreeM
         private void Register_Load(object sender, EventArgs e)
         {
 
+=======
+            
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
         }
     }
 }

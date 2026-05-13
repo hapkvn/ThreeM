@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿namespace ThreeM
+=======
+﻿namespace Kiemtragiuaki
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 {
     partial class Register
     {
@@ -31,7 +35,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.txtname = new System.Windows.Forms.TextBox();
+=======
+            this.textBox1 = new System.Windows.Forms.TextBox();
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtfullName = new System.Windows.Forms.TextBox();
@@ -65,7 +73,11 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(141, 37);
             this.btnLogin.TabIndex = 10;
+<<<<<<< HEAD
             this.btnLogin.Text = "Đăng ký";
+=======
+            this.btnLogin.Text = "Đăng nhập";
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label1
@@ -79,12 +91,21 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Xác nhận mật khẩu";
             // 
+<<<<<<< HEAD
             // txtname
             // 
             this.txtname.Location = new System.Drawing.Point(362, 77);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(182, 20);
             this.txtname.TabIndex = 7;
+=======
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(362, 77);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(182, 20);
+            this.textBox1.TabIndex = 7;
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             // 
             // label3
             // 
@@ -119,7 +140,10 @@
             // 
             this.txtpassword.Location = new System.Drawing.Point(362, 179);
             this.txtpassword.Name = "txtpassword";
+<<<<<<< HEAD
             this.txtpassword.PasswordChar = '*';
+=======
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.txtpassword.Size = new System.Drawing.Size(182, 20);
             this.txtpassword.TabIndex = 15;
             // 
@@ -127,7 +151,10 @@
             // 
             this.txtVePass.Location = new System.Drawing.Point(362, 224);
             this.txtVePass.Name = "txtVePass";
+<<<<<<< HEAD
             this.txtVePass.PasswordChar = '*';
+=======
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.txtVePass.Size = new System.Drawing.Size(182, 20);
             this.txtVePass.TabIndex = 16;
             // 
@@ -145,10 +172,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
+<<<<<<< HEAD
             this.Controls.Add(this.txtname);
             this.Name = "Register";
             this.Text = "Register";
             this.Load += new System.EventHandler(this.Register_Load);
+=======
+            this.Controls.Add(this.textBox1);
+            this.Name = "Register";
+            this.Text = "Register";
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,7 +192,11 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Label label1;
+<<<<<<< HEAD
         private System.Windows.Forms.TextBox txtname;
+=======
+        private System.Windows.Forms.TextBox textBox1;
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtfullName;
