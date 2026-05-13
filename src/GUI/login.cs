@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Kiemtragiuaki.GUI;
 //sử dụng thư viện để dùng sql
 using System.Data.SqlClient;
-<<<<<<< HEAD
+
 using MySqlConnector;
 
 namespace ThreeM
-=======
-
-namespace Kiemtragiuaki
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 {
     public partial class login : Form
     {
@@ -31,13 +26,13 @@ namespace Kiemtragiuaki
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             //lẫy dữ liệu từ text box
             string username = txtuer.Text.Trim();
             string pass = txtPassword.Text.Trim();
 
             //Kiểm tra xem người dùng có bỏ trống textbox nào không
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(pass))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(pass))
             {
                 MessageBox.Show("Hãy nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -71,7 +66,8 @@ namespace Kiemtragiuaki
                 }
 
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -79,8 +75,7 @@ namespace Kiemtragiuaki
 
         private void login_Load(object sender, EventArgs e)
         {
-=======
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+
 
         }
     }
