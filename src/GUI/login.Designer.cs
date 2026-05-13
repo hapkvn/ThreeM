@@ -1,6 +1,8 @@
-﻿using System.Windows.Forms;
-
-namespace Kiemtragiuaki.GUI
+<<<<<<< HEAD
+﻿namespace ThreeM
+=======
+﻿namespace Kiemtragiuaki
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 {
     partial class login
     {
@@ -30,13 +32,34 @@ namespace Kiemtragiuaki.GUI
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
+            this.txtuer = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+=======
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.label1 = new System.Windows.Forms.Label();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+<<<<<<< HEAD
+            // txtuer
+            // 
+            this.txtuer.Location = new System.Drawing.Point(316, 180);
+            this.txtuer.Name = "txtuer";
+            this.txtuer.Size = new System.Drawing.Size(182, 20);
+            this.txtuer.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(316, 240);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(182, 20);
+            this.txtPassword.TabIndex = 1;
+=======
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(316, 180);
@@ -50,6 +73,7 @@ namespace Kiemtragiuaki.GUI
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(182, 20);
             this.textBox2.TabIndex = 1;
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             // 
             // label1
             // 
@@ -100,10 +124,18 @@ namespace Kiemtragiuaki.GUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
+<<<<<<< HEAD
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtuer);
+            this.Name = "login";
+            this.Text = "login";
+            this.Load += new System.EventHandler(this.login_Load);
+=======
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "login";
             this.Text = "login";
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,8 +143,13 @@ namespace Kiemtragiuaki.GUI
 
         #endregion
 
+<<<<<<< HEAD
+        private System.Windows.Forms.TextBox txtuer;
+        private System.Windows.Forms.TextBox txtPassword;
+=======
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Label label2;

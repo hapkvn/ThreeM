@@ -1,4 +1,8 @@
-﻿namespace Kiemtragiuaki.GUI
+<<<<<<< HEAD
+﻿namespace ThreeM
+=======
+﻿namespace Kiemtragiuaki
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
 {
     partial class LogRegister
     {
@@ -66,6 +70,10 @@
             this.btnResgiter.Size = new System.Drawing.Size(141, 37);
             this.btnResgiter.TabIndex = 3;
             this.btnResgiter.Text = "Đăng ký";
+<<<<<<< HEAD
+            this.btnResgiter.Click += new System.EventHandler(this.btnResgiter_Click);
+=======
+>>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             // 
             // LogRegister
             // 

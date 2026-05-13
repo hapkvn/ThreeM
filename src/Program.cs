@@ -1,4 +1,4 @@
-﻿
+
     using Kiemtragiuaki.GUI;
     using System;
     using System.Collections.Generic;
