@@ -35,5 +35,28 @@ namespace Kiemtragiuaki.DAL
             CloseConnection();
             return account;
         }
+        public bool RegisterUser(string username, string password, string fullname)
+        {
+            try
+            {
+                string query = "INSERT INTO Users (Username, Password, FullName) VALUES (@user, @pass, @name)";
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@user", username);
+                cmd.Parameters.AddWithValue("@pass", password);
+                cmd.Parameters.AddWithValue("@name", fullname);
+
+                int result = cmd.ExecuteNonQuery();
+                return result > 0; // Trả về true nếu thêm thành công
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
     }
 }

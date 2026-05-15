@@ -57,7 +57,7 @@
             this.pnBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnBottom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.pnBottom.Location = new System.Drawing.Point(0, 519);
-            this.pnBottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnBottom.Margin = new System.Windows.Forms.Padding(2);
             this.pnBottom.Name = "pnBottom";
             this.pnBottom.Size = new System.Drawing.Size(900, 81);
             this.pnBottom.TabIndex = 0;
@@ -68,7 +68,7 @@
             this.playBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.playBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.playBar.Location = new System.Drawing.Point(358, 38);
-            this.playBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playBar.Margin = new System.Windows.Forms.Padding(2);
             this.playBar.Name = "playBar";
             this.playBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
             this.playBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
@@ -87,7 +87,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Padding = new System.Windows.Forms.Padding(15, 16, 0, 0);
             this.pnLeft.Size = new System.Drawing.Size(150, 519);
@@ -99,7 +99,7 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(17, 18);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(159, 49);
             this.guna2HtmlLabel1.TabIndex = 3;
@@ -177,7 +177,7 @@
             this.pnTop.Controls.Add(this.Close);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(150, 0);
-            this.pnTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnTop.Margin = new System.Windows.Forms.Padding(2);
             this.pnTop.Name = "pnTop";
             this.pnTop.Size = new System.Drawing.Size(750, 44);
             this.pnTop.TabIndex = 2;
@@ -237,10 +237,11 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.pnMain.Location = new System.Drawing.Point(150, 44);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(750, 475);
             this.pnMain.TabIndex = 3;
+            this.pnMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnMain_Paint);
             // 
             // guna2DragControl2
             // 
@@ -265,7 +266,7 @@
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

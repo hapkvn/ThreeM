@@ -45,5 +45,14 @@ namespace Kiemtragiuaki.BUS
             if (user == null) return false;
             return user.Role.Equals("Admin", StringComparison.OrdinalIgnoreCase);
         }
+        public bool RegisterUser(string username, string password, string fullname)
+        {
+            // Ràng buộc điều kiện (Validation)
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(fullname))
+                return false;
+
+            // Đẩy xuống DAL
+            return _userDAL.RegisterUser(username, password, fullname);
+        }
     }
 }
