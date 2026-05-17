@@ -52,9 +52,9 @@ namespace Kiemtragiuaki.GUI
             }
         }
 
-        private void loginForm_Load(object sender, EventArgs e)
+        private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

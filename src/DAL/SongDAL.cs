@@ -75,5 +75,44 @@ namespace Kiemtragiuaki.DAL
             finally { CloseConnection(); }
             return list;
         }
+
+
+        public bool RefreshMusicLibrary(List<Tuple<string, string, string, string>> scannedSongs)
+        {
+            MySqlTransaction trans = null;
+            try
+            {
+                OpenConnection();
+                trans = conn.BeginTransaction();
+
+               
+                string sql = @"INSERT INTO songs (SongID, Title, Artist, FilePath, CategoryID) 
+                       VALUES (@id, @title, @artist, @path, @catID)
+                       ON DUPLICATE KEY UPDATE 
+                            FilePath = @path, 
+                            Title = @title;"; 
+
+                foreach (var song in scannedSongs)
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn, trans);
+                    cmd.Parameters.AddWithValue("@id", song.Item1);
+                    cmd.Parameters.AddWithValue("@title", song.Item2);
+                    cmd.Parameters.AddWithValue("@artist", "Unknown");
+                    cmd.Parameters.AddWithValue("@path", song.Item3);
+                    cmd.Parameters.AddWithValue("@catID", song.Item4); 
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                trans.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                if (trans != null) trans.Rollback();
+                throw new Exception("Lỗi cập nhật kho nhạc: " + ex.Message);
+            }
+            finally { CloseConnection(); }
+        }
     }
 }

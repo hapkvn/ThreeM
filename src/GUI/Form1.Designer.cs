@@ -38,6 +38,10 @@
             this.lblCurrentTime = new System.Windows.Forms.Label();
             this.lblTotalTime = new System.Windows.Forms.Label();
             this.pnBottom = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRepeat = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnPause = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnPrev = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.btnNext = new Guna.UI2.WinForms.Guna2CircleButton();
             this.playBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.timeMusic = new System.Windows.Forms.Timer(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -48,10 +52,6 @@
             this.btnList = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnRepeat = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btnPause = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btnPrev = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btnNext = new Guna.UI2.WinForms.Guna2CircleButton();
             this.pnTop.SuspendLayout();
             this.pnBottom.SuspendLayout();
             this.pnLeft.SuspendLayout();
@@ -64,9 +64,9 @@
             this.pnTop.Controls.Add(this.Close);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTop.Location = new System.Drawing.Point(200, 0);
-            this.pnTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnTop.Margin = new System.Windows.Forms.Padding(2);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(1000, 54);
+            this.pnTop.Size = new System.Drawing.Size(1000, 44);
             this.pnTop.TabIndex = 2;
             // 
             // Minizime
@@ -76,10 +76,10 @@
             this.Minizime.FillColor = System.Drawing.Color.Transparent;
             this.Minizime.HoverState.FillColor = System.Drawing.Color.Gray;
             this.Minizime.IconColor = System.Drawing.Color.White;
-            this.Minizime.Location = new System.Drawing.Point(749, 15);
+            this.Minizime.Location = new System.Drawing.Point(812, 12);
             this.Minizime.Margin = new System.Windows.Forms.Padding(4);
             this.Minizime.Name = "Minizime";
-            this.Minizime.Size = new System.Drawing.Size(60, 36);
+            this.Minizime.Size = new System.Drawing.Size(45, 29);
             this.Minizime.TabIndex = 2;
             // 
             // Max
@@ -89,10 +89,10 @@
             this.Max.FillColor = System.Drawing.Color.Transparent;
             this.Max.HoverState.FillColor = System.Drawing.Color.Gray;
             this.Max.IconColor = System.Drawing.Color.White;
-            this.Max.Location = new System.Drawing.Point(840, 15);
+            this.Max.Location = new System.Drawing.Point(880, 12);
             this.Max.Margin = new System.Windows.Forms.Padding(4);
             this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(60, 36);
+            this.Max.Size = new System.Drawing.Size(45, 29);
             this.Max.TabIndex = 1;
             // 
             // Close
@@ -101,10 +101,10 @@
             this.Close.FillColor = System.Drawing.Color.Transparent;
             this.Close.HoverState.FillColor = System.Drawing.Color.Gray;
             this.Close.IconColor = System.Drawing.Color.White;
-            this.Close.Location = new System.Drawing.Point(924, 15);
+            this.Close.Location = new System.Drawing.Point(943, 12);
             this.Close.Margin = new System.Windows.Forms.Padding(4);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(60, 36);
+            this.Close.Size = new System.Drawing.Size(45, 29);
             this.Close.TabIndex = 0;
             // 
             // guna2ShadowForm1
@@ -115,10 +115,10 @@
             // 
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.pnMain.Location = new System.Drawing.Point(200, 54);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnMain.Location = new System.Drawing.Point(200, 44);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(1000, 584);
+            this.pnMain.Size = new System.Drawing.Size(1000, 594);
             this.pnMain.TabIndex = 3;
             // 
             // lblCurrentTime
@@ -154,21 +154,89 @@
             this.pnBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnBottom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.pnBottom.Location = new System.Drawing.Point(0, 638);
-            this.pnBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnBottom.Location = new System.Drawing.Point(0, 519);
             this.pnBottom.Margin = new System.Windows.Forms.Padding(2);
             this.pnBottom.Name = "pnBottom";
             this.pnBottom.Size = new System.Drawing.Size(1200, 100);
             this.pnBottom.TabIndex = 0;
             this.pnBottom.Visible = false;
             // 
+            // btnRepeat
+            // 
+            this.btnRepeat.BackColor = System.Drawing.Color.Transparent;
+            this.btnRepeat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRepeat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRepeat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRepeat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRepeat.FillColor = System.Drawing.Color.Transparent;
+            this.btnRepeat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRepeat.ForeColor = System.Drawing.Color.White;
+            this.btnRepeat.Image = global::Kiemtragiuaki.Properties.Resources.repeat_button;
+            this.btnRepeat.Location = new System.Drawing.Point(728, 15);
+            this.btnRepeat.Name = "btnRepeat";
+            this.btnRepeat.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnRepeat.Size = new System.Drawing.Size(52, 53);
+            this.btnRepeat.TabIndex = 3;
+            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.Color.Transparent;
+            this.btnPause.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPause.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPause.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPause.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPause.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
+            this.btnPause.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPause.ForeColor = System.Drawing.Color.White;
+            this.btnPause.Image = global::Kiemtragiuaki.Properties.Resources.right_arrow__1_;
+            this.btnPause.Location = new System.Drawing.Point(571, 15);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnPause.Size = new System.Drawing.Size(52, 53);
+            this.btnPause.TabIndex = 2;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrev.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrev.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPrev.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPrev.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
+            this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPrev.ForeColor = System.Drawing.Color.White;
+            this.btnPrev.Image = global::Kiemtragiuaki.Properties.Resources.ui;
+            this.btnPrev.Location = new System.Drawing.Point(490, 15);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnPrev.Size = new System.Drawing.Size(52, 53);
+            this.btnPrev.TabIndex = 1;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
+            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNext.ForeColor = System.Drawing.Color.White;
+            this.btnNext.Image = global::Kiemtragiuaki.Properties.Resources.next_button;
+            this.btnNext.Location = new System.Drawing.Point(648, 15);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnNext.Size = new System.Drawing.Size(52, 53);
+            this.btnNext.TabIndex = 0;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // playBar
             // 
             this.playBar.BorderRadius = 6;
             this.playBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.playBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.playBar.Location = new System.Drawing.Point(480, 73);
-            this.playBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playBar.Location = new System.Drawing.Point(358, 38);
             this.playBar.Margin = new System.Windows.Forms.Padding(2);
             this.playBar.Name = "playBar";
@@ -207,7 +275,6 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
@@ -219,8 +286,6 @@
             this.guna2HtmlLabel1.AutoSize = false;
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 22);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(17, 18);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
@@ -248,6 +313,7 @@
             this.btnSetting.TabIndex = 2;
             this.btnSetting.Text = "Cài Đặt";
             this.btnSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // btnList
             // 
@@ -293,143 +359,10 @@
             this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // pnTop
-            // 
-            this.pnTop.Controls.Add(this.Minizime);
-            this.pnTop.Controls.Add(this.Max);
-            this.pnTop.Controls.Add(this.Close);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnTop.Location = new System.Drawing.Point(150, 0);
-            this.pnTop.Margin = new System.Windows.Forms.Padding(2);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(750, 44);
-            this.pnTop.TabIndex = 2;
-            // 
-            // Minizime
-            // 
-            this.Minizime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Minizime.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.Minizime.FillColor = System.Drawing.Color.Transparent;
-            this.Minizime.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.Minizime.IconColor = System.Drawing.Color.White;
-            this.Minizime.Location = new System.Drawing.Point(562, 12);
-            this.Minizime.Name = "Minizime";
-            this.Minizime.Size = new System.Drawing.Size(45, 29);
-            this.Minizime.TabIndex = 2;
-            // 
-            // Max
-            // 
-            this.Max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Max.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.Max.FillColor = System.Drawing.Color.Transparent;
-            this.Max.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.Max.IconColor = System.Drawing.Color.White;
-            this.Max.Location = new System.Drawing.Point(630, 12);
-            this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(45, 29);
-            this.Max.TabIndex = 1;
-            // 
-            // Close
-            // 
-            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Close.FillColor = System.Drawing.Color.Transparent;
-            this.Close.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.Close.IconColor = System.Drawing.Color.White;
-            this.Close.Location = new System.Drawing.Point(693, 12);
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(45, 29);
-            this.Close.TabIndex = 0;
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.pnLeft;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // btnRepeat
-            // 
-            this.btnRepeat.BackColor = System.Drawing.Color.Transparent;
-            this.btnRepeat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRepeat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRepeat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRepeat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRepeat.FillColor = System.Drawing.Color.Transparent;
-            this.btnRepeat.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRepeat.ForeColor = System.Drawing.Color.White;
-            this.btnRepeat.Image = global::Kiemtragiuaki.Properties.Resources.repeat_button;
-            this.btnRepeat.Location = new System.Drawing.Point(728, 15);
-            this.btnRepeat.Name = "btnRepeat";
-            this.btnRepeat.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnRepeat.Size = new System.Drawing.Size(52, 53);
-            this.btnRepeat.TabIndex = 3;
-            this.btnRepeat.Click += new System.EventHandler(this.btnRepeat_Click);
-            // 
-            // btnPause
-            // 
-            this.btnPause.BackColor = System.Drawing.Color.Transparent;
-            this.btnPause.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPause.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPause.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPause.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPause.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
-            this.btnPause.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPause.ForeColor = System.Drawing.Color.White;
-            this.btnPause.Image = global::Kiemtragiuaki.Properties.Resources.right_arrow__1_;
-            this.btnPause.Location = new System.Drawing.Point(571, 15);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnPause.Size = new System.Drawing.Size(52, 53);
-            this.btnPause.TabIndex = 2;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.pnMain.Location = new System.Drawing.Point(150, 44);
-            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(750, 475);
-            this.pnMain.TabIndex = 3;
-            this.pnMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnMain_Paint);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrev.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrev.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnPrev.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnPrev.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
-            this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnPrev.ForeColor = System.Drawing.Color.White;
-            this.btnPrev.Image = global::Kiemtragiuaki.Properties.Resources.ui;
-            this.btnPrev.Location = new System.Drawing.Point(490, 15);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnPrev.Size = new System.Drawing.Size(52, 53);
-            this.btnPrev.TabIndex = 1;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnNext.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnNext.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnNext.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNext.ForeColor = System.Drawing.Color.White;
-            this.btnNext.Image = global::Kiemtragiuaki.Properties.Resources.next_button;
-            this.btnNext.Location = new System.Drawing.Point(648, 15);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnNext.Size = new System.Drawing.Size(52, 53);
-            this.btnNext.TabIndex = 0;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // Form1
             // 
@@ -442,8 +375,6 @@
             this.Controls.Add(this.pnLeft);
             this.Controls.Add(this.pnBottom);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1200, 738);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";

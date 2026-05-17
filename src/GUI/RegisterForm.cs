@@ -58,9 +58,9 @@ namespace Kiemtragiuaki.GUI
             }
         }
 
-        // Hàm trống để fix lỗi Load
-        private void RegisterForm_Load(object sender, EventArgs e)
+        private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Application.Exit();
         }
     }
 }

@@ -34,6 +34,12 @@ namespace Kiemtragiuaki.BUS
             return _songDAL.GetSongsByCategoryID(categoryID);
         }
 
+        public bool CapNhatKhoNhac(List<Tuple<string, string, string, string>> scannedSongs)
+        {
+            if (scannedSongs == null || scannedSongs.Count == 0) return false;
+
+            return _songDAL.RefreshMusicLibrary(scannedSongs);
+        }
 
     }
 }

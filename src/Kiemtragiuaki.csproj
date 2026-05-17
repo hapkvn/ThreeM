@@ -206,6 +206,12 @@
     <Compile Include="GUI\UC_Library.Designer.cs">
       <DependentUpon>UC_Library.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UC_Setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC_Setting.Designer.cs">
+      <DependentUpon>UC_Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UC_SongItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -219,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Form_SelectSong.resx">
       <DependentUpon>Form_SelectSong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC_AlbumItem.resx">
       <DependentUpon>UC_AlbumItem.cs</DependentUpon>
@@ -234,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC_Library.resx">
       <DependentUpon>UC_Library.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC_Setting.resx">
+      <DependentUpon>UC_Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC_SongItem.resx">
       <DependentUpon>UC_SongItem.cs</DependentUpon>

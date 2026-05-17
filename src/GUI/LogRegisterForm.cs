@@ -25,10 +25,5 @@ namespace Kiemtragiuaki.GUI
             frmRegister.Show();
             this.Hide();
         }
-
-        // Hàm trống này để sửa lỗi "LogRegisterForm_Load_1" không tồn tại
-        private void LogRegisterForm_Load_1(object sender, EventArgs e)
-        {
-        }
     }
 }

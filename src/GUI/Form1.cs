@@ -104,6 +104,16 @@ namespace Kiemtragiuaki.GUI
             timeMusic.Interval = 1000;
             timeMusic.Tick += timeMusic_Tick;
             playBar.MouseClick += playBar_MouseClick;
+
+            UC_Home home = new UC_Home();
+
+            home.OnSongSelected = (musicPath, categoryList) => {
+                this.playlist = categoryList;
+                this.currentIndex = playlist.IndexOf(musicPath);
+                PlayMusic(musicPath);
+            };
+
+            renderPage(home);
         }
 
         private void PlayMusic(string file)
@@ -263,11 +273,12 @@ namespace Kiemtragiuaki.GUI
                 btnRepeat.FillColor = Color.Transparent;
             }
         }
-    }
-}
-        private void pnMain_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            UC_Setting settingPage = new UC_Setting();
+            renderPage(settingPage);
         }
     }
 }
+       
