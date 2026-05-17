@@ -66,3 +66,6 @@ D:\Netcuoiki\src\obj\Debug\Kiemtrag.CDC2299B.Up2Date
 D:\Netcuoiki\src\obj\Debug\Kiemtragiuaki.exe
 D:\Netcuoiki\src\obj\Debug\Kiemtragiuaki.pdb
 D:\Netcuoiki\src\obj\Debug\Kiemtragiuaki.GUI.UC_SongItem.resources
+D:\Netcuoiki\src\obj\Debug\Kiemtragiuaki.GUI.UC_AlbumItem.resources
+D:\Netcuoiki\src\obj\Debug\Kiemtragiuaki.GUI.UC_CreateAlbum.resources
+D:\Netcuoiki\src\obj\Debug\Kiemtragiuaki.GUI.Form_SelectSong.resources

@@ -136,21 +136,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\AlbumBUS.cs" />
     <Compile Include="BUS\CategoryBUS.cs" />
+    <Compile Include="BUS\PlaylistBUS.cs" />
     <Compile Include="BUS\SongBUS.cs" />
     <Compile Include="BUS\UserBUS.cs" />
+    <Compile Include="DAL\AlbumDAL.cs" />
     <Compile Include="DAL\CategoryDAL.cs" />
     <Compile Include="DAL\DatabaseConnection.cs" />
+    <Compile Include="DAL\PlaylistDAL.cs" />
     <Compile Include="DAL\SongDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\PlaylistDTO.cs" />
     <Compile Include="DTO\Song.cs" />
     <Compile Include="DTO\User.cs" />
+    <Compile Include="DTO\UserAlbumDTO.cs" />
     <Compile Include="GUI\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Form_SelectSong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form_SelectSong.Designer.cs">
+      <DependentUpon>Form_SelectSong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC_AlbumItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC_AlbumItem.Designer.cs">
+      <DependentUpon>UC_AlbumItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC_CreateAlbum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC_CreateAlbum.Designer.cs">
+      <DependentUpon>UC_CreateAlbum.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UC_Home.cs">
       <SubType>UserControl</SubType>
@@ -174,6 +198,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form_SelectSong.resx">
+      <DependentUpon>Form_SelectSong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC_AlbumItem.resx">
+      <DependentUpon>UC_AlbumItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC_CreateAlbum.resx">
+      <DependentUpon>UC_CreateAlbum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC_Home.resx">
       <DependentUpon>UC_Home.cs</DependentUpon>
@@ -214,6 +247,9 @@
     <Content Include="Music\Nhường Lại Nỗi Đau %28Air Remix%29.mp3" />
     <Content Include="Music\Phim Ba Người %28MK Remix%29.mp3" />
     <Content Include="Music\Đớn Đau Vô Cùng %28Remix Version%29.mp3" />
+    <None Include="Resources\repeat-button.png" />
+    <None Include="Resources\ui.png" />
+    <None Include="Resources\next-button.png" />
     <None Include="Resources\right-arrow %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

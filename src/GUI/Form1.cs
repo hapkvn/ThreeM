@@ -1,4 +1,5 @@
-﻿using NAudio.Wave;
+﻿using Kiemtragiuaki.DTO;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,17 +11,22 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Kiemtragiuaki.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace Kiemtragiuaki.GUI
 {
     public partial class Form1 : Form
     {
+        public static string selectedAlbumID = "";
+
         //ds
         private NAudio.Wave.WaveOutEvent outputDevice;
         private NAudio.Wave.AudioFileReader audioFile;
 
-        
+        private List<string> playlist = new List<string>();
+        private int currentIndex = -1;
 
+        private bool isRepeat = false;
+        private Color repeatGreen = Color.FromArgb(30, 215, 96); 
         public Form1()
         {
             InitializeComponent();
@@ -46,9 +52,16 @@ namespace Kiemtragiuaki.GUI
         {
             UC_Home home = new UC_Home();
 
-            // Lắng nghe sự kiện phát nhạc từ UC_Home
-            home.OnSongSelected = (musicPath) => {
-                PlayMusic(musicPath); // Hàm này trong Form1 của ông sẽ lo phần NAudio và PlayBar
+            // Sửa lại đoạn này để nhận 2 tham số (musicPath và categoryList)
+            home.OnSongSelected = (musicPath, categoryList) => {
+                // Cập nhật "kho dữ liệu" cho Form1
+                this.playlist = categoryList;
+
+                // Xác định vị trí bài đang phát trong danh sách mới này
+                this.currentIndex = playlist.IndexOf(musicPath);
+
+                // Phát nhạc
+                PlayMusic(musicPath);
             };
 
             renderPage(home);
@@ -67,17 +80,21 @@ namespace Kiemtragiuaki.GUI
             pnMain.Controls.Add(uc);
 
 
+
+
         }
 
-        
+
 
         private void timeMusic_Tick(object sender, EventArgs e)
         {
-
             if (audioFile != null && outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing)
             {
+                // Cập nhật vị trí thanh bar
                 playBar.Value = (int)audioFile.CurrentTime.TotalSeconds;
 
+                // Cập nhật nhãn thời gian hiện tại (Định dạng m:ss)
+                lblCurrentTime.Text = audioFile.CurrentTime.ToString(@"m\:ss");
             }
         }
 
@@ -93,58 +110,158 @@ namespace Kiemtragiuaki.GUI
         {
             try
             {
-                // 1. Chuyển đổi tất cả thành dấu gạch chéo chuẩn của Windows
                 string pathChuan = file.Replace("/", "\\");
+                if (!System.IO.File.Exists(pathChuan)) return;
 
-                // 2. Kiểm tra thực tế file có tồn tại không trước khi nạp vào NAudio
-                if (!System.IO.File.Exists(pathChuan))
+                if (outputDevice != null)
                 {
-                    MessageBox.Show("Lỗi: Không tìm thấy file tại:\n" + pathChuan, "Sai đường dẫn");
-                    return;
+                    outputDevice.Stop(); // Dừng phát ngay lập tức
+                    outputDevice.PlaybackStopped -= OnPlaybackStopped; // Hủy đăng ký tạm thời để tránh lặp vô hạn
+                    outputDevice.Dispose();
+                    outputDevice = null;
                 }
 
-                outputDevice?.Stop();
-                outputDevice?.Dispose();
-                audioFile?.Dispose();
+                if (audioFile != null)
+                {
+                    audioFile.Dispose();
+                    audioFile = null;
+                }
+                // ---------------------
 
-                audioFile = new AudioFileReader(pathChuan); // Dùng pathChuan đã sửa
+                audioFile = new AudioFileReader(pathChuan);
                 outputDevice = new WaveOutEvent();
+
+                // Đăng ký lại sự kiện sau khi đã khởi tạo mới
+                outputDevice.PlaybackStopped += OnPlaybackStopped;
+
                 outputDevice.Init(audioFile);
                 outputDevice.Play();
 
+                pnBottom.Visible = true;
+
                 playBar.Maximum = (int)audioFile.TotalTime.TotalSeconds;
+                lblTotalTime.Text = audioFile.TotalTime.ToString(@"m\:ss");
                 timeMusic.Start();
             }
             catch (Exception ex)
             {
+                // Thông báo lỗi như trong image_a2f17e.png sẽ không còn xuất hiện nữa
                 MessageBox.Show("Lỗi hệ thống: " + ex.Message);
             }
         }
 
-
-
+        private void OnPlaybackStopped(object sender, StoppedEventArgs e)
+        {
+            // Sử dụng Invoke để tránh lỗi xung đột luồng (Thread) vì NAudio chạy luồng riêng
+            this.Invoke(new Action(() =>
+            {
+                if (isRepeat)
+                {
+                    // Nếu đang bật Repeat: Phát lại bài hiện tại
+                    PlayMusic(playlist[currentIndex]);
+                }
+                else
+                {
+                    // Nếu không bật Repeat: Tự động bấm nút Next để sang bài mới
+                    btnNext_Click(null, null);
+                }
+            }));
+        }
 
 
         private void playBar_MouseClick(object sender, MouseEventArgs e)
         {
             if (audioFile != null)
             {
-                // Tính toán vị trí click
                 double ratio = (double)e.X / (double)playBar.Width;
                 double newPosition = ratio * audioFile.TotalTime.TotalSeconds;
 
-                // Kiểm tra hợp lệ để tránh văng app
                 if (newPosition >= 0 && newPosition <= audioFile.TotalTime.TotalSeconds)
                 {
-                    // Nhảy nhạc
                     audioFile.CurrentTime = TimeSpan.FromSeconds(newPosition);
-
-                    // Cập nhật thanh bar ngay lập tức để thấy kết quả
                     playBar.Value = (int)newPosition;
+
+                    // Cập nhật nhãn ngay lập tức khi vừa click tua
+                    lblCurrentTime.Text = audioFile.CurrentTime.ToString(@"m\:ss");
                 }
             }
         }
 
-       
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu chưa có danh sách thì thoát
+            if (playlist == null || playlist.Count == 0) return;
+
+            // Tăng index, nếu quá bài cuối thì về 0
+            currentIndex++;
+            if (currentIndex >= playlist.Count)
+            {
+                currentIndex = 0;
+            }
+
+            // Phát bài tiếp theo
+            PlayMusic(playlist[currentIndex]);
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra danh sách có dữ liệu không
+            if (playlist == null || playlist.Count == 0) return;
+
+            // 2. Giảm vị trí bài hát hiện tại xuống 1
+            currentIndex--;
+
+            // 3. Nếu vị trí nhỏ hơn 0 (đang ở bài đầu mà bấm lùi)
+            // thì quay về bài cuối cùng của danh sách
+            if (currentIndex < 0)
+            {
+                currentIndex = playlist.Count - 1;
+            }
+
+            // 4. Phát nhạc bài ở vị trí mới
+            PlayMusic(playlist[currentIndex]);
+        }
+
+        
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem đã có bài nhạc nào được nạp chưa
+            if (outputDevice == null || audioFile == null) return;
+
+            // 2. Kiểm tra trạng thái hiện tại
+            if (outputDevice.PlaybackState == NAudio.Wave.PlaybackState.Playing)
+            {
+                // Nếu đang phát thì Tạm dừng
+                outputDevice.Pause();
+
+               
+            }
+            else if (outputDevice.PlaybackState == NAudio.Wave.PlaybackState.Paused ||
+                     outputDevice.PlaybackState == NAudio.Wave.PlaybackState.Stopped)
+            {
+                // Nếu đang dừng hoặc tạm nghỉ thì Phát tiếp
+                outputDevice.Play();
+
+               
+            }
+        }
+
+        private void btnRepeat_Click(object sender, EventArgs e)
+        {
+            // 1. Đảo trạng thái true <-> false
+            isRepeat = !isRepeat;
+
+            // 2. Thay đổi màu sắc hiển thị (giống image_aebc36.png)
+            if (isRepeat)
+            {
+                btnRepeat.FillColor = repeatGreen;
+                
+            }
+            else
+            {
+                btnRepeat.FillColor = Color.Transparent;
+            }
+        }
     }
 }

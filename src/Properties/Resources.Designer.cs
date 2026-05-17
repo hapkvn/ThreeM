@@ -63,9 +63,39 @@ namespace Kiemtragiuaki.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap next_button {
+            get {
+                object obj = ResourceManager.GetObject("next-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap repeat_button {
+            get {
+                object obj = ResourceManager.GetObject("repeat-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_arrow__1_ {
             get {
                 object obj = ResourceManager.GetObject("right-arrow (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ui {
+            get {
+                object obj = ResourceManager.GetObject("ui", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

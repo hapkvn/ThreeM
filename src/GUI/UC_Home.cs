@@ -18,8 +18,7 @@ namespace Kiemtragiuaki.GUI
     {
 
         // để thông báo cho form1   
-        public Action<string> OnSongSelected { get; set; }
-
+        public Action<string, List<string>> OnSongSelected { get; set; }
         CategoryBUS categoryBUS = new CategoryBUS();
         SongBUS songBUS = new SongBUS();
 
@@ -80,25 +79,24 @@ namespace Kiemtragiuaki.GUI
             List<Song> songList = songBUS.GetSongsByCategoryID(categoryID);
             flpSongs.Controls.Clear();
 
+            // 1. Tạo danh sách tất cả đường dẫn trong Category này
+            List<string> allPathsInCategory = songList.Select(s => s.FilePath).ToList();
+
             int stt = 1;
             foreach (var s in songList)
             {
                 UC_SongItem item = new UC_SongItem();
                 item.SetData(s, stt++);
 
-                // ĐĂNG KÝ NHẬN TIN TỪ ITEM Ở ĐÂY
+                // 2. Khi bấm Play ở Item, truyền cả bài đó và danh sách allPathsInCategory
                 item.OnPlayClick = (path) => {
-                    // Khi Item bấm play, UC_Home báo tiếp lên cho Form1
-                    OnSongSelected?.Invoke(path);
+                    // UC_Home báo tiếp lên cho Form1 kèm danh sách tổng
+                    OnSongSelected?.Invoke(path, allPathsInCategory);
                 };
 
-                // Ép kích thước cố định
                 item.Size = new Size(flpSongs.Width - 30, 60);
-                // Thêm vào danh sách hiển thị
                 flpSongs.Controls.Add(item);
                 item.Show();
-
-
             }
         }
         private void pnlCategorySample_Click(object sender, EventArgs e)
