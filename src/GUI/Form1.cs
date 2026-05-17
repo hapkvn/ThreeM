@@ -265,3 +265,9 @@ namespace Kiemtragiuaki.GUI
         }
     }
 }
+        private void pnMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
+}

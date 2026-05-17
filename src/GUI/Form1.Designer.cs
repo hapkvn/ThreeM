@@ -155,6 +155,8 @@
             this.pnBottom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.pnBottom.Location = new System.Drawing.Point(0, 638);
             this.pnBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnBottom.Location = new System.Drawing.Point(0, 519);
+            this.pnBottom.Margin = new System.Windows.Forms.Padding(2);
             this.pnBottom.Name = "pnBottom";
             this.pnBottom.Size = new System.Drawing.Size(1200, 100);
             this.pnBottom.TabIndex = 0;
@@ -167,6 +169,8 @@
             this.playBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.playBar.Location = new System.Drawing.Point(480, 73);
             this.playBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.playBar.Location = new System.Drawing.Point(358, 38);
+            this.playBar.Margin = new System.Windows.Forms.Padding(2);
             this.playBar.Name = "playBar";
             this.playBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
             this.playBar.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
@@ -204,6 +208,7 @@
             this.pnLeft.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.pnLeft.Location = new System.Drawing.Point(0, 0);
             this.pnLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnLeft.Name = "pnLeft";
             this.pnLeft.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
             this.pnLeft.Size = new System.Drawing.Size(200, 638);
@@ -216,6 +221,8 @@
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 22);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(17, 18);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(212, 60);
             this.guna2HtmlLabel1.TabIndex = 3;
@@ -286,6 +293,59 @@
             this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // pnTop
+            // 
+            this.pnTop.Controls.Add(this.Minizime);
+            this.pnTop.Controls.Add(this.Max);
+            this.pnTop.Controls.Add(this.Close);
+            this.pnTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnTop.Location = new System.Drawing.Point(150, 0);
+            this.pnTop.Margin = new System.Windows.Forms.Padding(2);
+            this.pnTop.Name = "pnTop";
+            this.pnTop.Size = new System.Drawing.Size(750, 44);
+            this.pnTop.TabIndex = 2;
+            // 
+            // Minizime
+            // 
+            this.Minizime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minizime.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.Minizime.FillColor = System.Drawing.Color.Transparent;
+            this.Minizime.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.Minizime.IconColor = System.Drawing.Color.White;
+            this.Minizime.Location = new System.Drawing.Point(562, 12);
+            this.Minizime.Name = "Minizime";
+            this.Minizime.Size = new System.Drawing.Size(45, 29);
+            this.Minizime.TabIndex = 2;
+            // 
+            // Max
+            // 
+            this.Max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Max.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.Max.FillColor = System.Drawing.Color.Transparent;
+            this.Max.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.Max.IconColor = System.Drawing.Color.White;
+            this.Max.Location = new System.Drawing.Point(630, 12);
+            this.Max.Name = "Max";
+            this.Max.Size = new System.Drawing.Size(45, 29);
+            this.Max.TabIndex = 1;
+            // 
+            // Close
+            // 
+            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close.FillColor = System.Drawing.Color.Transparent;
+            this.Close.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.Close.IconColor = System.Drawing.Color.White;
+            this.Close.Location = new System.Drawing.Point(693, 12);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(45, 29);
+            this.Close.TabIndex = 0;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.pnLeft;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 20;
@@ -326,6 +386,14 @@
             this.btnPause.Size = new System.Drawing.Size(52, 53);
             this.btnPause.TabIndex = 2;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.pnMain.Location = new System.Drawing.Point(150, 44);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(2);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(750, 475);
+            this.pnMain.TabIndex = 3;
+            this.pnMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnMain_Paint);
             // 
             // btnPrev
             // 
@@ -376,6 +444,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(1200, 738);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

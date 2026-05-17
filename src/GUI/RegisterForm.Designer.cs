@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-﻿namespace ThreeM
-=======
-﻿namespace Kiemtragiuaki
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+﻿namespace Kiemtragiuaki.GUI
 {
-    partial class Register
+    partial class RegisterForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -26,20 +15,12 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+       private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.txtname = new System.Windows.Forms.TextBox();
-=======
-            this.textBox1 = new System.Windows.Forms.TextBox();
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtfullName = new System.Windows.Forms.TextBox();
@@ -61,24 +42,15 @@
             // btnLogin
             // 
             this.btnLogin.BorderRadius = 20;
-            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
             this.btnLogin.Location = new System.Drawing.Point(362, 265);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(141, 37);
             this.btnLogin.TabIndex = 10;
-<<<<<<< HEAD
             this.btnLogin.Text = "Đăng ký";
-=======
-            this.btnLogin.Text = "Đăng nhập";
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click); // Liên kết sự kiện click
             // 
             // label1
             // 
@@ -91,21 +63,12 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Xác nhận mật khẩu";
             // 
-<<<<<<< HEAD
             // txtname
             // 
             this.txtname.Location = new System.Drawing.Point(362, 77);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(182, 20);
             this.txtname.TabIndex = 7;
-=======
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(362, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 20);
-            this.textBox1.TabIndex = 7;
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
             // 
             // label3
             // 
@@ -140,10 +103,7 @@
             // 
             this.txtpassword.Location = new System.Drawing.Point(362, 179);
             this.txtpassword.Name = "txtpassword";
-<<<<<<< HEAD
-            this.txtpassword.PasswordChar = '*';
-=======
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+            this.txtpassword.PasswordChar = '*'; // Ẩn pass
             this.txtpassword.Size = new System.Drawing.Size(182, 20);
             this.txtpassword.TabIndex = 15;
             // 
@@ -151,14 +111,11 @@
             // 
             this.txtVePass.Location = new System.Drawing.Point(362, 224);
             this.txtVePass.Name = "txtVePass";
-<<<<<<< HEAD
-            this.txtVePass.PasswordChar = '*';
-=======
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+            this.txtVePass.PasswordChar = '*'; // Ẩn pass
             this.txtVePass.Size = new System.Drawing.Size(182, 20);
             this.txtVePass.TabIndex = 16;
             // 
-            // Register
+            // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -172,31 +129,19 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
-<<<<<<< HEAD
             this.Controls.Add(this.txtname);
-            this.Name = "Register";
-            this.Text = "Register";
-            this.Load += new System.EventHandler(this.Register_Load);
-=======
-            this.Controls.Add(this.textBox1);
-            this.Name = "Register";
-            this.Text = "Register";
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
+            this.Name = "RegisterForm";
+            this.Text = "Đăng Ký Tài Khoản";
+            this.Load += new System.EventHandler(this.RegisterForm_Load); // Gắn sự kiện Load
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
         #endregion
-
+        // Khai báo lại các biến cho Form Đăng ký
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Label label1;
-<<<<<<< HEAD
         private System.Windows.Forms.TextBox txtname;
-=======
-        private System.Windows.Forms.TextBox textBox1;
->>>>>>> 10ab8420b7de0393c72cefb336108a286c67b9c0
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtfullName;

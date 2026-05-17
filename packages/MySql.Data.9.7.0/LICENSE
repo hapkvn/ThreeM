@@ -60,8 +60,8 @@ either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 
 
-  ======================================================================
-  ======================================================================
+            
+            
 
 
 GNU GENERAL PUBLIC LICENSE
@@ -412,8 +412,8 @@ you may consider it more useful to permit linking proprietary
 applications with the library.  If this is what you want to do, use
 the GNU Lesser General Public License instead of this License.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 The Universal FOSS Exception, Version 1.0
 
@@ -471,8 +471,8 @@ The Universal FOSS Exception, Version 1.0
        of any kind for use or distribution of the Software in conjunction
        with software other than Other FOSS.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 Licenses for Third-Party Components
 
@@ -516,8 +516,8 @@ of the input file used when generating it.  This code is not
 standalone and requires a support library to be linked with it.  This
 support library is itself covered by the above license.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 Kerberos5
 
@@ -588,7 +588,7 @@ manner.  It does NOT prevent a commercial firm from referring to the
 MIT trademarks in order to convey information (although in doing so,
 recognition of their trademark status should be given).
 
-======================================================================
+          
 
 The following copyright and permission notice applies to the
 OpenVision Kerberos Administration system located in "kadmin/create",
@@ -629,14 +629,14 @@ portions of "lib/rpc":
    the valuable work which has been performed by MIT and the Kerberos
    community.
 
-======================================================================
+          
 
    Portions contributed by Matt Crawford "crawdad@fnal.gov" were work
 performed at Fermi National Accelerator Laboratory, which is
    operated by Universities Research Association, Inc., under contract
    DE-AC02-76CHO3000 with the U.S. Department of Energy.
 
-======================================================================
+          
 
 Portions of "src/lib/crypto" have the following copyright:
 
@@ -664,7 +664,7 @@ Portions of "src/lib/crypto" have the following copyright:
    IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
    WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-======================================================================
+          
 
 The implementation of the AES encryption algorithm in
 "src/lib/crypto/builtin/aes" has the following copyright:
@@ -693,7 +693,7 @@ The implementation of the AES encryption algorithm in
    warranties in respect of any properties, including, but not limited
    to, correctness and fitness for purpose.
 
-======================================================================
+          
 
 Portions contributed by Red Hat, including the pre-authentication
 plug-in framework and the NSS crypto implementation, contain the
@@ -732,7 +732,7 @@ following copyright:
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-======================================================================
+          
 
 The bundled verto source code is subject to the following license:
 
@@ -758,7 +758,7 @@ The bundled verto source code is subject to the following license:
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
    DEALINGS IN THE SOFTWARE.
 
-======================================================================
+          
 
 The MS-KKDCP client implementation has the following copyright:
 
@@ -790,7 +790,7 @@ The MS-KKDCP client implementation has the following copyright:
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-======================================================================
+          
 
 The implementations of GSSAPI mechglue in GSSAPI-SPNEGO in
 "src/lib/gssapi", including the following files:
@@ -870,7 +870,7 @@ are subject to the following license:
    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 
-======================================================================
+          
 
 Kerberos V5 includes documentation and software developed at the
 University of California at Berkeley, which includes this copyright
@@ -908,7 +908,7 @@ notice:
    OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
    SUCH DAMAGE.
 
-======================================================================
+          
 
 Portions contributed by Novell, Inc., including the LDAP database
 backend, are subject to the following license:
@@ -945,7 +945,7 @@ backend, are subject to the following license:
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-======================================================================
+          
 
 Portions funded by Sandia National Laboratory and developed by the
 University of Michigan's Center for Information Technology
@@ -977,7 +977,7 @@ following license:
    IN CONNECTION WITH THE USE OF THE SOFTWARE, EVEN IF IT HAS BEEN OR
    IS HEREAFTER ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-======================================================================
+          
 
 The pkcs11.h file included in the PKINIT code has the following
 license:
@@ -994,7 +994,7 @@ license:
    the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
    PURPOSE.
 
-======================================================================
+          
 
 Portions contributed by Apple Inc. are subject to the following
 license:
@@ -1021,7 +1021,7 @@ license:
    IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
    WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-======================================================================
+          
 
 The implementations of UTF-8 string handling in src/util/support and
 src/lib/krb5/unicode are subject to the following copyright and
@@ -1112,7 +1112,7 @@ Marked test programs in src/lib/krb5/krb have the following copyright:
    OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
    SUCH DAMAGE.
 
-======================================================================
+          
 
 The KCM Mach RPC definition file used on macOS has the following
 copyright:
@@ -1153,7 +1153,7 @@ copyright:
    OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
    SUCH DAMAGE.
 
-======================================================================
+          
 
 Portions of the RPC implementation in src/lib/rpc and
 src/include/gssrpc have the following copyright and permission notice:
@@ -1192,7 +1192,7 @@ src/include/gssrpc have the following copyright and permission notice:
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-======================================================================
+          
 
    Copyright (C) 2006,2007,2009 NTT (Nippon Telegraph and Telephone
    Corporation).  All rights reserved.
@@ -1222,7 +1222,7 @@ src/include/gssrpc have the following copyright and permission notice:
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-======================================================================
+          
 
    Copyright 2000 by Carnegie Mellon University
 
@@ -1246,7 +1246,7 @@ src/include/gssrpc have the following copyright and permission notice:
    OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
    SOFTWARE.
 
-======================================================================
+          
 
    Copyright (C) 2002 Naval Research Laboratory (NRL/CCS)
 
@@ -1260,7 +1260,7 @@ src/include/gssrpc have the following copyright and permission notice:
    DISCLAIMS ANY LIABILITY OF ANY KIND FOR ANY DAMAGES WHATSOEVER
    RESULTING FROM THE USE OF THIS SOFTWARE.
 
-======================================================================
+          
 
 Portions extracted from Internet RFCs have the following copyright
 notice:
@@ -1280,7 +1280,7 @@ notice:
    ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
    PARTICULAR PURPOSE.
 
-======================================================================
+          
 
    Copyright (C) 1991, 1992, 1994 by Cygnus Support.
 
@@ -1293,7 +1293,7 @@ notice:
    purpose.  It is provided "as is" without express or implied
    warranty.
 
-======================================================================
+          
 
    Copyright (C) 2006 Secure Endpoints Inc.
 
@@ -1317,7 +1317,7 @@ notice:
    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 
-======================================================================
+          
 
 Portions of the implementation of the Fortuna-like PRNG are subject to
 the following notice:
@@ -1374,7 +1374,7 @@ the following notice:
    consequential damages with respect to any claim by the user or
    distributor of the ksu software.
 
-======================================================================
+          
 
    Copyright (C) 1995
    The President and Fellows of Harvard University
@@ -1417,7 +1417,7 @@ the following notice:
    OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
    SUCH DAMAGE.
 
-======================================================================
+          
 
    Copyright (C) 2008 by the Massachusetts Institute of Technology.
    Copyright 1995 by Richard P. Basch.  All Rights Reserved.
@@ -1440,7 +1440,7 @@ the following notice:
    suitability of this software for any purpose.  It is provided "as
    is" without express or implied warranty.
 
-======================================================================
+          
 
 The following notice applies to "src/lib/krb5/krb/strptime.c" and
 "src/include/k5-queue.h".
@@ -1486,7 +1486,7 @@ The following notice applies to "src/lib/krb5/krb/strptime.c" and
    USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
    DAMAGE.
 
-======================================================================
+          
 
 The following notice applies to Unicode library files in
 "src/lib/krb5/unicode":
@@ -1513,7 +1513,7 @@ The following notice applies to Unicode library files in
    OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
    OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-======================================================================
+          
 
 The following notice applies to "src/util/support/strlcpy.c":
 
@@ -1533,7 +1533,7 @@ The following notice applies to "src/util/support/strlcpy.c":
    NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
    CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-======================================================================
+          
 
 The following notice applies to "src/util/profile/argv_parse.c" and
 "src/util/profile/argv_parse.h":
@@ -1554,7 +1554,7 @@ The following notice applies to "src/util/profile/argv_parse.c" and
    it sick that the U.S. culture of lawsuit-happy lawyers requires
    this kind of disclaimer?)
 
-======================================================================
+          
 
 The following notice applies to SWIG-generated code in
 "src/util/profile/profile_tcl.c":
@@ -1564,7 +1564,7 @@ The following notice applies to SWIG-generated code in
    This file may be freely redistributed without license or fee
    provided this copyright message remains intact.
 
-======================================================================
+          
 
 The following notice applies to portiions of "src/lib/rpc" and
 "src/include/gssrpc":
@@ -1627,7 +1627,7 @@ notice:
    These notices must be retained in any copies of any part of this
    documentation and/or software.
 
-======================================================================
+          
 
 Implementations of the MD5 algorithm are subject to the following
 notice:
@@ -1652,7 +1652,7 @@ notice:
    These notices must be retained in any copies of any part of this
    documentation and/or software.
 
-======================================================================
+          
 
 The following notice applies to
 "src/lib/crypto/crypto_tests/t_mddriver.c":
@@ -1668,7 +1668,7 @@ The following notice applies to
    These notices must be retained in any copies of any part of this
    documentation and/or software.
 
-======================================================================
+          
 
 Portions of "src/lib/krb5" are subject to the following notice:
 
@@ -1697,7 +1697,7 @@ Technology.
    about the suitability of this software for any purpose.  It is
    provided "as is" without express or implied warranty.
 
-======================================================================
+          
 
 Portions contributed by PADL Software are subject to the following
 license:
@@ -1733,7 +1733,7 @@ license:
    OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
    SUCH DAMAGE.
 
-======================================================================
+          
 
 The bundled libev source code is subject to the following license:
 
@@ -1777,7 +1777,7 @@ The bundled libev source code is subject to the following license:
    delete the provisions above, a recipient may use your version of
    this file under either the BSD or the GPL.
 
-======================================================================
+          
 
 Files copied from the Intel AESNI Sample Library are subject to the
 following license:
@@ -1815,7 +1815,7 @@ following license:
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-======================================================================
+          
 
 The following notice applies to
 "src/ccapi/common/win/OldCC/autolock.hxx":
@@ -1847,8 +1847,8 @@ The following notice applies to
    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
    OF THE POSSIBILITY OF SUCH DAMAGE.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 LibFIDO
 
@@ -1878,7 +1878,7 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 4th Party
-=========
+ ==
 
 libcbor
 -------
@@ -1946,8 +1946,8 @@ the FAQ for more information on the distribution of modified source versions.
 OpenSSL (See its own license section)
 ------------------------------------------------------------------------------
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 OpenSSL 3.0
 
@@ -1971,8 +1971,8 @@ the Oracle program might not operate properly or at all without it.
 See Apache License v2.0, January 2004 in the
 'Standard Licenses' section.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 opentelemetry-dotnet-dll
 
@@ -2000,8 +2000,8 @@ Oracle program might not operate properly or at all without it.
 
 See Apache License v2.0, January 2004 in the 'Standard Licenses' section.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 Standard Licenses
 
@@ -2215,8 +2215,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 implied. See the License for the specific language governing permissions
 and limitations under the License.
 
-   ======================================================================
-   ======================================================================
+             
+             
 
 Written Offer for Source Code
 
