@@ -279,6 +279,11 @@ namespace Kiemtragiuaki.GUI
             UC_Setting settingPage = new UC_Setting();
             renderPage(settingPage);
         }
+
+        private void pnMain_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
        

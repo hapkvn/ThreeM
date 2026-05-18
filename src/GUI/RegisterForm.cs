@@ -8,6 +8,7 @@ namespace Kiemtragiuaki.GUI
     public partial class RegisterForm : Form
     {
         loginForm frmLogin = new loginForm();
+        LogRegisterForm lor = new LogRegisterForm();
 
         public RegisterForm()
         {
@@ -61,6 +62,13 @@ namespace Kiemtragiuaki.GUI
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            lor.ShowDialog();
+            
         }
     }
 }

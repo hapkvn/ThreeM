@@ -9,6 +9,8 @@ namespace Kiemtragiuaki.GUI
     public partial class loginForm : Form
     {
         Form1 form = new Form1(); // Khởi tạo Form chính của ứng dụng
+        LogRegisterForm lor = new LogRegisterForm();
+
 
         public loginForm()
         {
@@ -55,6 +57,17 @@ namespace Kiemtragiuaki.GUI
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            lor.ShowDialog();
         }
     }
 }
