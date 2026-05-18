@@ -27,14 +27,52 @@ namespace Kiemtragiuaki.GUI
             dgvSongs.DataSource = _songBUS.GetSongs();
             dgvSongs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Ẩn hết, chỉ hiện SongID / Title / Artist / CategoryID
+            // Ẩn hết
             foreach (DataGridViewColumn col in dgvSongs.Columns)
                 col.Visible = false;
 
-            if (dgvSongs.Columns["SongID"] != null) { dgvSongs.Columns["SongID"].Visible = true; dgvSongs.Columns["SongID"].FillWeight = 15; }
-            if (dgvSongs.Columns["Title"] != null) { dgvSongs.Columns["Title"].Visible = true; dgvSongs.Columns["Title"].FillWeight = 45; }
-            if (dgvSongs.Columns["Artist"] != null) { dgvSongs.Columns["Artist"].Visible = true; dgvSongs.Columns["Artist"].FillWeight = 30; }
-            if (dgvSongs.Columns["CategoryID"] != null) { dgvSongs.Columns["CategoryID"].Visible = true; dgvSongs.Columns["CategoryID"].FillWeight = 15; }
+            // Hiện các cột cần thiết
+            if (dgvSongs.Columns["SongID"] != null)
+            {
+                dgvSongs.Columns["SongID"].Visible = true;
+                dgvSongs.Columns["SongID"].FillWeight = 15;
+            }
+
+            if (dgvSongs.Columns["Title"] != null)
+            {
+                dgvSongs.Columns["Title"].Visible = true;
+                dgvSongs.Columns["Title"].FillWeight = 45;
+            }
+
+            if (dgvSongs.Columns["Artist"] != null)
+            {
+                dgvSongs.Columns["Artist"].Visible = true;
+                dgvSongs.Columns["Artist"].FillWeight = 30;
+            }
+
+            // Đổi CategoryID thành tên thể loại
+            if (dgvSongs.Columns["CategoryID"] != null)
+            {
+                dgvSongs.Columns["CategoryID"].Visible = true;
+                dgvSongs.Columns["CategoryID"].HeaderText = "Thể loại";
+
+                foreach (DataGridViewRow row in dgvSongs.Rows)
+                {
+                    if (row.Cells["CategoryID"].Value != null)
+                    {
+                        string catID = row.Cells["CategoryID"].Value.ToString();
+
+                        var category = _categoryBUS
+                            .LayTatCaTheLoai()
+                            .Find(c => c.CategoryID == catID);
+
+                        if (category != null)
+                        {
+                            row.Cells["CategoryID"].Value = category.CategoryName;
+                        }
+                    }
+                }
+            }
 
             _selectedSongID = null;
             lblSelectedSong.Text = "← Bấm vào bài hát để chọn thể loại";
@@ -61,7 +99,7 @@ namespace Kiemtragiuaki.GUI
             string title = row.Cells["Title"].Value?.ToString();
             string catID = row.Cells["CategoryID"].Value?.ToString();
 
-            lblSelectedSong.Text = $"Đang chọn:  {title}";
+            lblSelectedSong.Text = $" {title}";
             comboBox1.SelectedValue = catID;
         }
 
