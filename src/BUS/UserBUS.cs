@@ -54,5 +54,23 @@ namespace Kiemtragiuaki.BUS
             // Đẩy xuống DAL
             return _userDAL.RegisterUser(username, password, fullname);
         }
+        public List<User> GetAllUsers()
+        {
+            return _userDAL.GetAllUsers();
+        }
+
+        public bool UpdateUserRole(string userID, string newRole)
+        {
+            if (string.IsNullOrEmpty(userID) || string.IsNullOrEmpty(newRole))
+                throw new Exception("Thông tin không hợp lệ.");
+            return _userDAL.UpdateUserRole(userID, newRole);
+        }
+
+        public bool DeleteUser(string userID, string currentUserID)
+        {
+            if (userID == currentUserID)
+                throw new Exception("Không thể xóa tài khoản đang đăng nhập!");
+            return _userDAL.DeleteUser(userID);
+        }
     }
 }
