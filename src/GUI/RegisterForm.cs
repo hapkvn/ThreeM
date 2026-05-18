@@ -60,7 +60,7 @@ namespace Kiemtragiuaki.GUI
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }

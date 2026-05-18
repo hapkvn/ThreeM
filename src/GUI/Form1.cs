@@ -1,4 +1,5 @@
 ﻿using Kiemtragiuaki.DTO;
+using Kiemtragiuaki.BUS;
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
@@ -100,6 +101,9 @@ namespace Kiemtragiuaki.GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            btnAdmin.Visible = Session.IsAdmin;
+            btnUserManager.Visible = Session.IsAdmin;
+            btnTheLoai.Visible = Session.IsAdmin;
             timeMusic = new Timer();
             timeMusic.Interval = 1000;
             timeMusic.Tick += timeMusic_Tick;
@@ -278,6 +282,36 @@ namespace Kiemtragiuaki.GUI
         {
             UC_Setting settingPage = new UC_Setting();
             renderPage(settingPage);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            loginForm login = new loginForm();
+
+            login.Show();
+
+            this.Close();
+        }
+
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            new Quan_ly_nhac().ShowDialog();
+        }
+
+        private void btnUserManager_Click(object sender, EventArgs e)
+        {
+            new UserManagerForm().ShowDialog();
+        }
+
+        private void btnTheLoai_Click(object sender, EventArgs e)
+        {
+            new QuanLyTheLoaiForm().ShowDialog();
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

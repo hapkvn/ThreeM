@@ -10,7 +10,7 @@ namespace Kiemtragiuaki.DAL
     internal class DatabaseConnection
     {
         // chuỗi kết nối
-       private string connectionString = "server=localhost;port=3306;database=MusicManagerDB;uid=root;pwd=Toan@2025;charset=utf8";
+       private string connectionString = "server=localhost;port=3306;database=musicmanagerdb;uid=root;pwd=123456789;charset=utf8";
 
         protected MySqlConnection conn;
         public DatabaseConnection()

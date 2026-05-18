@@ -34,12 +34,13 @@ namespace Kiemtragiuaki.GUI
                 UserBUS userBUS = new UserBUS();
                 User account = userBUS.Login(username, pass);
 
-                // Nếu account khác null nghĩa là có tài khoản trùng khớp trong Database
+                // Trong btnLogin_Click, sau khi login thành công:
                 if (account != null)
                 {
-                    this.Hide(); // Ẩn form login
-                    form.ShowDialog(); // Hiện form chính
-                    this.Close(); // Đóng hẳn form login sau khi người dùng tắt Form1
+                    Session.CurrentUser = account; // ← Thêm dòng này
+                    this.Hide();
+                    form.ShowDialog();
+                    this.Close();
                 }
                 else
                 {
@@ -54,7 +55,7 @@ namespace Kiemtragiuaki.GUI
 
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
         }
     }
 }
