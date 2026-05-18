@@ -56,6 +56,7 @@
             this.btnList = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.btnThongKe = new Guna.UI2.WinForms.Guna2Button();
             this.pnTop.SuspendLayout();
             this.pnBottom.SuspendLayout();
             this.pnLeft.SuspendLayout();
@@ -272,6 +273,7 @@
             // 
             // pnLeft
             // 
+            this.pnLeft.Controls.Add(this.btnThongKe);
             this.pnLeft.Controls.Add(this.btnTheLoai);
             this.pnLeft.Controls.Add(this.btnUserManager);
             this.pnLeft.Controls.Add(this.btnAdmin);
@@ -288,6 +290,7 @@
             this.pnLeft.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
             this.pnLeft.Size = new System.Drawing.Size(200, 638);
             this.pnLeft.TabIndex = 1;
+            this.pnLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.pnLeft_Paint);
             // 
             // btnTheLoai
             // 
@@ -388,6 +391,7 @@
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(212, 60);
             this.guna2HtmlLabel1.TabIndex = 3;
             this.guna2HtmlLabel1.Text = "<b><span style=\"color: #1DB954;\">My Music\r\n</span> </b>";
+            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // btnSetting
             // 
@@ -460,6 +464,28 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // btnThongKe
+            // 
+            this.btnThongKe.BorderRadius = 10;
+            this.btnThongKe.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.btnThongKe.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnThongKe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongKe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongKe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThongKe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThongKe.FillColor = System.Drawing.Color.Transparent;
+            this.btnThongKe.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnThongKe.ForeColor = System.Drawing.Color.White;
+            this.btnThongKe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnThongKe.Location = new System.Drawing.Point(12, 386);
+            this.btnThongKe.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(152, 39);
+            this.btnThongKe.TabIndex = 9;
+            this.btnThongKe.Text = "Thống Kê";
+            this.btnThongKe.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -514,6 +540,7 @@
         private Guna.UI2.WinForms.Guna2Button btnAdmin;
         private Guna.UI2.WinForms.Guna2Button btnUserManager;
         private Guna.UI2.WinForms.Guna2Button btnTheLoai;
+        private Guna.UI2.WinForms.Guna2Button btnThongKe;
     }
 }
 

@@ -138,9 +138,24 @@ namespace Kiemtragiuaki.GUI
                 LoadSongs();
             }
         }
+        private void dgvSongs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvSongs.Rows[e.RowIndex];
+            txtTitle.Text = row.Cells["Title"].Value?.ToString();
+            txtArtist.Text = row.Cells["Artist"].Value?.ToString();
+            txtFilePath.Text = row.Cells["FilePath"].Value?.ToString();
+            txtCategoryID.Text = row.Cells["CategoryID"].Value?.ToString();
+        }
 
-      
+        private void Quan_ly_nhac_Load(object sender, EventArgs e)
+        {
 
-        
+        }
+
+        private void dgvSongs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kiemtragiuaki.BUS;
 using Kiemtragiuaki.DTO;
@@ -14,153 +8,188 @@ namespace Kiemtragiuaki.GUI
 {
     public partial class QuanLyTheLoaiForm : Form
     {
-        private CategoryBUS _bus = new CategoryBUS();
+        private CategoryBUS _categoryBUS = new CategoryBUS();
+        private SongBUS _songBUS = new SongBUS();
+        private string _selectedSongID = null;
 
         public QuanLyTheLoaiForm()
         {
             InitializeComponent();
-            CauHinhComboBox();
-            LoadDanhSach();
+            ApplyDarkTheme();
+            LoadCategories();
+            LoadSongs();
         }
 
-        private void CauHinhComboBox()
+        //Load danh sách bài hát 
+        private void LoadSongs()
         {
-            comboBox1.DisplayMember = "CategoryName";
-            comboBox1.ValueMember = "CategoryID";
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.DataSource = _bus.LayTatCaTheLoai();
+            dgvSongs.DataSource = null;
+            dgvSongs.DataSource = _songBUS.GetSongs();
+            dgvSongs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Ẩn hết, chỉ hiện SongID / Title / Artist / CategoryID
+            foreach (DataGridViewColumn col in dgvSongs.Columns)
+                col.Visible = false;
+
+            if (dgvSongs.Columns["SongID"] != null) { dgvSongs.Columns["SongID"].Visible = true; dgvSongs.Columns["SongID"].FillWeight = 15; }
+            if (dgvSongs.Columns["Title"] != null) { dgvSongs.Columns["Title"].Visible = true; dgvSongs.Columns["Title"].FillWeight = 45; }
+            if (dgvSongs.Columns["Artist"] != null) { dgvSongs.Columns["Artist"].Visible = true; dgvSongs.Columns["Artist"].FillWeight = 30; }
+            if (dgvSongs.Columns["CategoryID"] != null) { dgvSongs.Columns["CategoryID"].Visible = true; dgvSongs.Columns["CategoryID"].FillWeight = 15; }
+
+            _selectedSongID = null;
+            lblSelectedSong.Text = "← Bấm vào bài hát để chọn thể loại";
             comboBox1.SelectedIndex = -1;
         }
 
-        private void LoadDanhSach()
+        // ── Load thể loại vào ComboBox ──────────────────────
+        private void LoadCategories()
         {
-            dgvSongs.DataSource = null;
-            dgvSongs.DataSource = new SongBUS().GetSongs();
+            comboBox1.DataSource = null;
+            comboBox1.DataSource = _categoryBUS.LayTatCaTheLoai();
+            comboBox1.DisplayMember = "CategoryName";
+            comboBox1.ValueMember = "CategoryID";
+            comboBox1.SelectedIndex = -1;
+        }
 
-            dgvSongs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        // ── Click vào bài hát → hiện tên + chọn thể loại ──
+        private void dgvSongs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
 
-            if (dgvSongs.Columns["SongID"] != null) dgvSongs.Columns["SongID"].FillWeight = 15;
-            if (dgvSongs.Columns["Title"] != null) dgvSongs.Columns["Title"].FillWeight = 30;
-            if (dgvSongs.Columns["Artist"] != null) dgvSongs.Columns["Artist"].FillWeight = 25;
-            if (dgvSongs.Columns["FilePath"] != null) dgvSongs.Columns["FilePath"].FillWeight = 30;
-            if (dgvSongs.Columns["CategoryID"] != null) dgvSongs.Columns["CategoryID"].FillWeight = 15;
+            var row = dgvSongs.Rows[e.RowIndex];
+            _selectedSongID = row.Cells["SongID"].Value?.ToString();
+            string title = row.Cells["Title"].Value?.ToString();
+            string catID = row.Cells["CategoryID"].Value?.ToString();
 
-            Color nenden = Color.FromArgb(25, 25, 25);
-            Color xanh = Color.FromArgb(30, 215, 96);
-            Color màuChữTiêuĐề = Color.White;
+            lblSelectedSong.Text = $"Đang chọn:  {title}";
+            comboBox1.SelectedValue = catID;
+        }
+
+        // ── Cập nhật thể loại cho bài hát đang chọn ────────
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(_selectedSongID))
+            {
+                MessageBox.Show("Hãy chọn một bài hát!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (comboBox1.SelectedIndex < 0)
+            {
+                MessageBox.Show("Hãy chọn thể loại!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                var songs = _songBUS.GetSongs();
+                var song = songs.Find(s => s.SongID == _selectedSongID);
+                if (song == null) return;
+
+                song.CategoryID = comboBox1.SelectedValue?.ToString();
+                _songBUS.UpdateSong(song);
+
+                MessageBox.Show("Đã cập nhật thể loại!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadSongs();
+            }
+            catch (Exception ex) { MessageBox.Show("Lỗi: " + ex.Message); }
+        }
+
+        // ── Thêm thể loại mới ───────────────────────────────
+        private void btnThemTheLoai_Click(object sender, EventArgs e)
+        {
+            string ten = txtTenTheLoai.Text.Trim();
+            if (string.IsNullOrEmpty(ten))
+            {
+                MessageBox.Show("Nhập tên thể loại!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                _categoryBUS.ThemTheLoai(new CategoryDTO { CategoryName = ten });
+                MessageBox.Show($"Đã thêm \"{ten}\"!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtTenTheLoai.Text = "";
+                LoadCategories();
+            }
+            catch (Exception ex) { MessageBox.Show("Lỗi: " + ex.Message); }
+        }
+
+        // ── Xóa thể loại đang chọn trong ComboBox ──────────
+        private void btnXoaTheLoai_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex < 0)
+            {
+                MessageBox.Show("Chọn thể loại cần xóa trong danh sách!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string catID = comboBox1.SelectedValue?.ToString();
+            string catName = (comboBox1.SelectedItem as CategoryDTO)?.CategoryName;
+
+            // Đếm số bài hát đang dùng thể loại này
+            var baiHatLienQuan = _songBUS.GetSongs().FindAll(s => s.CategoryID == catID);
+            string canhBao = baiHatLienQuan.Count > 0
+                ? $"Xóa thể loại \"{catName}\"?\n\n⚠ Có {baiHatLienQuan.Count} bài hát đang dùng thể loại này, CategoryID của các bài đó sẽ bị xóa."
+                : $"Xóa thể loại \"{catName}\"";
+
+            if (MessageBox.Show(canhBao, "Xác nhận",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                try
+                {
+                    // Bước 1: Set CategoryID = null cho tất cả bài hát liên quan trước
+                    foreach (var song in baiHatLienQuan)
+                    {
+                        song.CategoryID = null;
+                        _songBUS.UpdateSong(song);
+                    }
+
+                    // Bước 2: Xóa thể loại (không còn bị FK chặn)
+                    _categoryBUS.XoaTheLoai(catID);
+
+                    MessageBox.Show("Đã xóa thể loại!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadCategories();
+                    LoadSongs();
+                }
+                catch (Exception ex) { MessageBox.Show("Lỗi: " + ex.Message); }
+            }
+        }
+
+        // ── Dark theme ──────────────────────────────────────
+        private void ApplyDarkTheme()
+        {
+            Color bg = Color.FromArgb(25, 25, 25);
+            Color green = Color.FromArgb(30, 215, 96);
+            Color header = Color.FromArgb(18, 18, 18);
 
             dgvSongs.EnableHeadersVisualStyles = false;
-            dgvSongs.BackgroundColor = nenden;
+            dgvSongs.BackgroundColor = bg;
             dgvSongs.BorderStyle = BorderStyle.None;
-
-            dgvSongs.DefaultCellStyle.BackColor = nenden;
-            dgvSongs.DefaultCellStyle.ForeColor = xanh;
-            dgvSongs.DefaultCellStyle.SelectionBackColor = xanh;
-            dgvSongs.DefaultCellStyle.SelectionForeColor = Color.Black;
             dgvSongs.GridColor = Color.FromArgb(40, 40, 40);
 
-            dgvSongs.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(18, 18, 18);
-            dgvSongs.ColumnHeadersDefaultCellStyle.ForeColor = màuChữTiêuĐề;
-            dgvSongs.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(18, 18, 18);
+            dgvSongs.DefaultCellStyle.BackColor = bg;
+            dgvSongs.DefaultCellStyle.ForeColor = green;
+            dgvSongs.DefaultCellStyle.SelectionBackColor = green;
+            dgvSongs.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvSongs.ColumnHeadersDefaultCellStyle.BackColor = header;
+            dgvSongs.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvSongs.ColumnHeadersDefaultCellStyle.SelectionBackColor = header;
             dgvSongs.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
-            dgvSongs.RowHeadersDefaultCellStyle.BackColor = nenden;
-            dgvSongs.RowHeadersDefaultCellStyle.ForeColor = xanh;
-            dgvSongs.RowHeadersDefaultCellStyle.SelectionBackColor = xanh;
+            dgvSongs.RowHeadersDefaultCellStyle.BackColor = bg;
+            dgvSongs.RowHeadersDefaultCellStyle.ForeColor = green;
+            dgvSongs.RowHeadersDefaultCellStyle.SelectionBackColor = green;
             dgvSongs.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
 
-        private void dgvSongs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void QuanLyTheLoaiForm_Load(object sender, EventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            var row = dgvSongs.Rows[e.RowIndex];
-            textBox1.Text = row.Cells["Title"].Value?.ToString();
-            textBox2.Text = row.Cells["Artist"].Value?.ToString();
-            textBox3.Text = row.Cells["FilePath"].Value?.ToString();
-            comboBox1.SelectedValue = row.Cells["CategoryID"].Value?.ToString();
-        }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            using (var dlg = new OpenFileDialog { Filter = "Audio|*.mp3;*.wav;*.flac" })
-                if (dlg.ShowDialog() == DialogResult.OK)
-                    textBox3.Text = dlg.FileName;
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedIndex < 0)
-            {
-                MessageBox.Show("Hãy chọn thể loại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            try
-            {
-                new SongBUS().AddSong(new Song
-                {
-                    Title = textBox1.Text.Trim(),
-                    Artist = textBox2.Text.Trim(),
-                    FilePath = textBox3.Text.Trim(),
-                    CategoryID = comboBox1.SelectedValue?.ToString()
-                });
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDanhSach(); ClearForm();
-            }
-            catch (Exception ex) { MessageBox.Show("Lỗi: " + ex.Message); }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            if (dgvSongs.CurrentRow == null)
-            {
-                MessageBox.Show("Hãy chọn bài hát cần cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (comboBox1.SelectedIndex < 0)
-            {
-                MessageBox.Show("Hãy chọn thể loại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            try
-            {
-                new SongBUS().UpdateSong(new Song
-                {
-                    SongID = dgvSongs.CurrentRow.Cells["SongID"].Value?.ToString(),
-                    Title = textBox1.Text.Trim(),
-                    Artist = textBox2.Text.Trim(),
-                    FilePath = textBox3.Text.Trim(),
-                    CategoryID = comboBox1.SelectedValue?.ToString()
-                });
-                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDanhSach(); ClearForm();
-            }
-            catch (Exception ex) { MessageBox.Show("Lỗi: " + ex.Message); }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (dgvSongs.CurrentRow == null)
-            {
-                MessageBox.Show("Hãy chọn bài hát cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            string id = dgvSongs.CurrentRow.Cells["SongID"].Value?.ToString();
-            string title = dgvSongs.CurrentRow.Cells["Title"].Value?.ToString();
-            if (MessageBox.Show($"Xóa bài \"{title}\"?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                new SongBUS().DeleteSong(id);
-                MessageBox.Show("Đã xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDanhSach(); ClearForm();
-            }
-        }
-
-        private void ClearForm()
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            comboBox1.SelectedIndex = -1;
-            dgvSongs.ClearSelection();
         }
     }
 }

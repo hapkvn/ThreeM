@@ -29,7 +29,7 @@ namespace Kiemtragiuaki.DAL
                             Title = reader["Title"].ToString(),
                             Artist = reader["Artist"].ToString(),
                             FilePath = reader["FilePath"].ToString(),
-                            CategoryID = reader["CategoryID"].ToString()
+                            CategoryID = reader["CategoryID"] == DBNull.Value ? null : reader["CategoryID"].ToString()
                         });
                     }
                 }
@@ -66,7 +66,7 @@ namespace Kiemtragiuaki.DAL
                             Title = reader["Title"].ToString(),
                             Artist = reader["Artist"].ToString(),
                             FilePath = reader["FilePath"].ToString(),
-                            CategoryID = reader["CategoryID"].ToString()
+                            CategoryID = reader["CategoryID"] == DBNull.Value ? null : reader["CategoryID"].ToString()
                         });
                     }
                 }
@@ -85,12 +85,12 @@ namespace Kiemtragiuaki.DAL
                 OpenConnection();
                 trans = conn.BeginTransaction();
 
-               
+
                 string sql = @"INSERT INTO songs (SongID, Title, Artist, FilePath, CategoryID) 
                        VALUES (@id, @title, @artist, @path, @catID)
                        ON DUPLICATE KEY UPDATE 
                             FilePath = @path, 
-                            Title = @title;"; 
+                            Title = @title;";
 
                 foreach (var song in scannedSongs)
                 {
@@ -99,7 +99,7 @@ namespace Kiemtragiuaki.DAL
                     cmd.Parameters.AddWithValue("@title", song.Item2);
                     cmd.Parameters.AddWithValue("@artist", "Unknown");
                     cmd.Parameters.AddWithValue("@path", song.Item3);
-                    cmd.Parameters.AddWithValue("@catID", song.Item4); 
+                    cmd.Parameters.AddWithValue("@catID", song.Item4);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -142,7 +142,7 @@ namespace Kiemtragiuaki.DAL
                 cmd.Parameters.AddWithValue("@title", s.Title);
                 cmd.Parameters.AddWithValue("@artist", s.Artist);
                 cmd.Parameters.AddWithValue("@path", s.FilePath);
-                cmd.Parameters.AddWithValue("@catID", s.CategoryID);
+                cmd.Parameters.AddWithValue("@catID", s.CategoryID == null ? (object)DBNull.Value : s.CategoryID);
                 return cmd.ExecuteNonQuery() > 0;
             }
             finally { CloseConnection(); }

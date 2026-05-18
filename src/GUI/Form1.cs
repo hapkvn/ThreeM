@@ -316,6 +316,23 @@ namespace Kiemtragiuaki.GUI
             btnAdmin.Visible = isAdminUser;
             btnUserManager.Visible = isAdminUser;
             btnTheLoai.Visible = isAdminUser;
+            btnThongKe.Visible = isAdminUser;
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            new ThongKeForm().ShowDialog();
+
+        }
+
+        private void pnLeft_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
