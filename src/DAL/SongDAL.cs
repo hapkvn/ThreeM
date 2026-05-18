@@ -114,5 +114,51 @@ namespace Kiemtragiuaki.DAL
             }
             finally { CloseConnection(); }
         }
+        public bool AddSong(Song s)
+        {
+            string query = "INSERT INTO Songs (SongID, Title, Artist, FilePath, CategoryID) VALUES (@id, @title, @artist, @path, @catID)";
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", s.SongID);
+                cmd.Parameters.AddWithValue("@title", s.Title);
+                cmd.Parameters.AddWithValue("@artist", s.Artist);
+                cmd.Parameters.AddWithValue("@path", s.FilePath);
+                cmd.Parameters.AddWithValue("@catID", s.CategoryID);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            finally { CloseConnection(); }
+        }
+
+        public bool UpdateSong(Song s)
+        {
+            string query = "UPDATE Songs SET Title=@title, Artist=@artist, FilePath=@path, CategoryID=@catID WHERE SongID=@id";
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", s.SongID);
+                cmd.Parameters.AddWithValue("@title", s.Title);
+                cmd.Parameters.AddWithValue("@artist", s.Artist);
+                cmd.Parameters.AddWithValue("@path", s.FilePath);
+                cmd.Parameters.AddWithValue("@catID", s.CategoryID);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            finally { CloseConnection(); }
+        }
+
+        public bool DeleteSong(string songID)
+        {
+            string query = "DELETE FROM Songs WHERE SongID=@id";
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", songID);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            finally { CloseConnection(); }
+        }
     }
 }

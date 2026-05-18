@@ -9,12 +9,11 @@ namespace Kiemtragiuaki.GUI
 {
     public partial class Form_SelectSong : Form
     {
-        // Sử dụng đúng các lớp BUS bạn đang có
         private SongBUS songBUS = new SongBUS();
         private AlbumBUS albumBUS = new AlbumBUS();
 
         private string targetAlbumID;
-        public Action OnSongAddedSuccess; // Gọi ngược về UC_Library để ép tải lại danh sách bài hát
+        public Action OnSongAddedSuccess; 
 
         public Form_SelectSong(string albumID, string albumName)
         {

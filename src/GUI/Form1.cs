@@ -1,4 +1,5 @@
 ﻿using Kiemtragiuaki.DTO;
+using Kiemtragiuaki.BUS;
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
@@ -100,6 +101,7 @@ namespace Kiemtragiuaki.GUI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
             timeMusic = new Timer();
             timeMusic.Interval = 1000;
             timeMusic.Tick += timeMusic_Tick;
@@ -278,6 +280,42 @@ namespace Kiemtragiuaki.GUI
         {
             UC_Setting settingPage = new UC_Setting();
             renderPage(settingPage);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Session.CurrentUser = null;
+                Application.Restart();
+            }
+        }
+
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            new Quan_ly_nhac().ShowDialog();
+        }
+
+        private void btnUserManager_Click(object sender, EventArgs e)
+        {
+            new UserManagerForm().ShowDialog();
+        }
+
+        private void btnTheLoai_Click(object sender, EventArgs e)
+        {
+            new QuanLyTheLoaiForm().ShowDialog();
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            bool isAdminUser = Session.IsAdmin;
+
+            btnAdmin.Visible = isAdminUser;
+            btnUserManager.Visible = isAdminUser;
+            btnTheLoai.Visible = isAdminUser;
         }
     }
 }

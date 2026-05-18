@@ -20,8 +20,11 @@ namespace Kiemtragiuaki.GUI
         private string currentOpeningAlbumName = "";
 
         AlbumBUS albumBUS = new AlbumBUS();
-        string currentUserID = "US_01";
-        // Khai báo sự kiện để gửi đường dẫn nhạc về Form chính
+        private string GetCurrentUserID()
+        {
+            return Session.CurrentUser?.UserID ?? "US_01";
+        }
+
         public Action<string> OnSongSelected;
 
         // 1. Khai báo biến toàn cục để quản lý UserControl tạo album
@@ -50,7 +53,8 @@ namespace Kiemtragiuaki.GUI
 
         public void LoadUserAlbums()
         {
-            // 1. Quản lý trạng thái hiển thị: Ẩn khung tạo, hiện danh sách album chính
+            
+
             panelCreateAlbum.Visible = false;
             panelAlbumDetail.Visible = false;
             flpAlbums.Visible = true;
@@ -67,7 +71,7 @@ namespace Kiemtragiuaki.GUI
             try
             {
                 // 3. Lấy dữ liệu từ BUS
-                var list = albumBUS.LayDanhSachAlbum(currentUserID);
+                var list = albumBUS.LayDanhSachAlbum(GetCurrentUserID());
 
                 if (list != null && list.Count > 0)
                 {
@@ -209,14 +213,10 @@ namespace Kiemtragiuaki.GUI
                 LoadUserAlbums();
             };
 
-            // --- ĐÃ SỬA LẠI CHÍNH XÁC THEO TẦNG BUS/DAL CỦA BẠN ---
             ucCreateAlbumArea.OnConfirm = (newAlbumName) => {
                 try
                 {
-                    // Gọi hàm TaoAlbumMoi và chỉ truyền 2 tham số: Tên album và ID người dùng hiện tại
-                    // ID của Album (ALB_mmss) sẽ tự động được sinh ra một cách an toàn ở tầng DAL
-                    bool checkLuu = albumBUS.TaoAlbumMoi(newAlbumName, currentUserID);
-
+                    bool checkLuu = albumBUS.TaoAlbumMoi(newAlbumName, GetCurrentUserID());
                     if (checkLuu)
                     {
                         MessageBox.Show($"Tạo album '{newAlbumName}' thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

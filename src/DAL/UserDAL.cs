@@ -58,5 +58,56 @@ namespace Kiemtragiuaki.DAL
                 CloseConnection();
             }
         }
+        public List<User> GetAllUsers()
+        {
+            List<User> list = new List<User>();
+            string query = "SELECT UserID, Username, Role FROM Users";
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        list.Add(new User
+                        {
+                            UserID = reader["UserID"].ToString(),
+                            Username = reader["Username"].ToString(),
+                            Role = reader["Role"].ToString()
+                        });
+                    }
+                }
+            }
+            finally { CloseConnection(); }
+            return list;
+        }
+
+        public bool UpdateUserRole(string userID, string newRole)
+        {
+            string query = "UPDATE Users SET Role=@role WHERE UserID=@id";
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@role", newRole);
+                cmd.Parameters.AddWithValue("@id", userID);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            finally { CloseConnection(); }
+        }
+
+        public bool DeleteUser(string userID)
+        {
+            string query = "DELETE FROM Users WHERE UserID=@id";
+            try
+            {
+                OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", userID);
+                return cmd.ExecuteNonQuery() > 0;
+            }
+            finally { CloseConnection(); }
+        }
     }
 }

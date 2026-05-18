@@ -4,3 +4,9 @@
 
 /.vs
 /src/.vs
+
+
+bin/
+obj/
+src/bin/
+src/obj/

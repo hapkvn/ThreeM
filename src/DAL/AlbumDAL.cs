@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Kiemtragiuaki.DAL
 {
@@ -147,7 +148,7 @@ namespace Kiemtragiuaki.DAL
             }
             catch (Exception ex)
             {
-                // Có thể dùng MessageBox.Show(ex.Message) để debug nếu cần
+                MessageBox.Show("lỗi" +ex.Message);
             }
             finally
             {

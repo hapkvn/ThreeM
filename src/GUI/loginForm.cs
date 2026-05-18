@@ -8,7 +8,8 @@ namespace Kiemtragiuaki.GUI
 {
     public partial class loginForm : Form
     {
-        Form1 form = new Form1(); // Khởi tạo Form chính của ứng dụng
+        
+
 
         public loginForm()
         {
@@ -37,9 +38,10 @@ namespace Kiemtragiuaki.GUI
                 // Nếu account khác null nghĩa là có tài khoản trùng khớp trong Database
                 if (account != null)
                 {
-                    this.Hide(); // Ẩn form login
-                    form.ShowDialog(); // Hiện form chính
-                    this.Close(); // Đóng hẳn form login sau khi người dùng tắt Form1
+                    MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.DialogResult = DialogResult.OK; // Gửi tín hiệu thành công
+                    this.Close();
                 }
                 else
                 {
@@ -54,7 +56,18 @@ namespace Kiemtragiuaki.GUI
 
         private void loginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (this.DialogResult != DialogResult.OK && this.DialogResult != DialogResult.Cancel)
+            {
+                Application.Exit(); 
+            }
+        }
+
+       
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

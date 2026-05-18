@@ -24,12 +24,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // txtuer
             // 
             this.txtuer.Location = new System.Drawing.Point(421, 222);
-            this.txtuer.Margin = new System.Windows.Forms.Padding(4);
+            this.txtuer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtuer.Name = "txtuer";
             this.txtuer.Size = new System.Drawing.Size(241, 22);
             this.txtuer.TabIndex = 0;
@@ -37,7 +38,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(421, 295);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(241, 22);
@@ -56,8 +57,8 @@
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
-            this.btnLogin.Location = new System.Drawing.Point(421, 364);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(448, 364);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(188, 46);
             this.btnLogin.TabIndex = 0;
@@ -89,18 +90,42 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Mật Khẩu:";
             // 
+            // btnBack
+            // 
+            this.btnBack.BorderColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnBack.BorderRadius = 20;
+            this.btnBack.CheckedState.BorderColor = System.Drawing.Color.White;
+            this.btnBack.CheckedState.CustomBorderColor = System.Drawing.Color.White;
+            this.btnBack.CheckedState.FillColor = System.Drawing.Color.White;
+            this.btnBack.CheckedState.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Ignore;
+            this.btnBack.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.btnBack.FocusedColor = System.Drawing.Color.White;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.PressedColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnBack.Size = new System.Drawing.Size(108, 44);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "↩";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtuer);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "loginForm";
             this.Text = "Đăng nhập";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.loginForm_FormClosed);
@@ -119,5 +144,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button btnBack;
     }
 }

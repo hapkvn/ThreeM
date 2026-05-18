@@ -18,9 +18,15 @@
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new LogRegisterForm());
 
-            
+            LogRegisterForm login = new LogRegisterForm();
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Form1());
             }
+
+
+        }
         }
     }

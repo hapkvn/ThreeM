@@ -47,6 +47,10 @@
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnTheLoai = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUserManager = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAdmin = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLogOut = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.btnList = new Guna.UI2.WinForms.Guna2Button();
@@ -120,6 +124,7 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(1000, 594);
             this.pnMain.TabIndex = 3;
+            this.pnMain.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // lblCurrentTime
             // 
@@ -143,7 +148,6 @@
             // 
             // pnBottom
             // 
-            this.pnBottom.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.pnBottom.Controls.Add(this.lblTotalTime);
             this.pnBottom.Controls.Add(this.lblCurrentTime);
             this.pnBottom.Controls.Add(this.btnRepeat);
@@ -237,7 +241,7 @@
             this.playBar.BorderRadius = 6;
             this.playBar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.playBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.playBar.Location = new System.Drawing.Point(358, 38);
+            this.playBar.Location = new System.Drawing.Point(480, 73);
             this.playBar.Margin = new System.Windows.Forms.Padding(2);
             this.playBar.Name = "playBar";
             this.playBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
@@ -268,6 +272,10 @@
             // 
             // pnLeft
             // 
+            this.pnLeft.Controls.Add(this.btnTheLoai);
+            this.pnLeft.Controls.Add(this.btnUserManager);
+            this.pnLeft.Controls.Add(this.btnAdmin);
+            this.pnLeft.Controls.Add(this.btnLogOut);
             this.pnLeft.Controls.Add(this.guna2HtmlLabel1);
             this.pnLeft.Controls.Add(this.btnSetting);
             this.pnLeft.Controls.Add(this.btnList);
@@ -280,6 +288,94 @@
             this.pnLeft.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
             this.pnLeft.Size = new System.Drawing.Size(200, 638);
             this.pnLeft.TabIndex = 1;
+            // 
+            // btnTheLoai
+            // 
+            this.btnTheLoai.BorderRadius = 10;
+            this.btnTheLoai.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.btnTheLoai.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnTheLoai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTheLoai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTheLoai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTheLoai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTheLoai.FillColor = System.Drawing.Color.Transparent;
+            this.btnTheLoai.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTheLoai.ForeColor = System.Drawing.Color.White;
+            this.btnTheLoai.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnTheLoai.Location = new System.Drawing.Point(12, 342);
+            this.btnTheLoai.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnTheLoai.Name = "btnTheLoai";
+            this.btnTheLoai.Size = new System.Drawing.Size(188, 39);
+            this.btnTheLoai.TabIndex = 8;
+            this.btnTheLoai.Text = "Quản lý Thể loại";
+            this.btnTheLoai.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTheLoai.Click += new System.EventHandler(this.btnTheLoai_Click);
+            // 
+            // btnUserManager
+            // 
+            this.btnUserManager.BorderRadius = 10;
+            this.btnUserManager.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.btnUserManager.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnUserManager.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnUserManager.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnUserManager.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnUserManager.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUserManager.FillColor = System.Drawing.Color.Transparent;
+            this.btnUserManager.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnUserManager.ForeColor = System.Drawing.Color.White;
+            this.btnUserManager.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnUserManager.Location = new System.Drawing.Point(12, 298);
+            this.btnUserManager.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnUserManager.Name = "btnUserManager";
+            this.btnUserManager.Size = new System.Drawing.Size(152, 39);
+            this.btnUserManager.TabIndex = 7;
+            this.btnUserManager.Text = "Cấp quyền";
+            this.btnUserManager.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUserManager.Click += new System.EventHandler(this.btnUserManager_Click);
+            // 
+            // btnAdmin
+            // 
+            this.btnAdmin.BorderRadius = 10;
+            this.btnAdmin.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.btnAdmin.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnAdmin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdmin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdmin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdmin.FillColor = System.Drawing.Color.Transparent;
+            this.btnAdmin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnAdmin.ForeColor = System.Drawing.Color.White;
+            this.btnAdmin.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnAdmin.Location = new System.Drawing.Point(12, 254);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(152, 39);
+            this.btnAdmin.TabIndex = 6;
+            this.btnAdmin.Text = "Quản lý nhạc";
+            this.btnAdmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BorderRadius = 10;
+            this.btnLogOut.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(185)))), ((int)(((byte)(84)))));
+            this.btnLogOut.CustomBorderThickness = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnLogOut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogOut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogOut.FillColor = System.Drawing.Color.Transparent;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnLogOut.Location = new System.Drawing.Point(12, 210);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(152, 39);
+            this.btnLogOut.TabIndex = 4;
+            this.btnLogOut.Text = "Đăng Xuất";
+            this.btnLogOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // guna2HtmlLabel1
             // 
@@ -306,10 +402,10 @@
             this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnSetting.Location = new System.Drawing.Point(12, 258);
+            this.btnSetting.Location = new System.Drawing.Point(12, 167);
             this.btnSetting.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(180, 50);
+            this.btnSetting.Size = new System.Drawing.Size(127, 38);
             this.btnSetting.TabIndex = 2;
             this.btnSetting.Text = "Cài Đặt";
             this.btnSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -328,10 +424,10 @@
             this.btnList.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnList.ForeColor = System.Drawing.Color.White;
             this.btnList.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnList.Location = new System.Drawing.Point(12, 187);
+            this.btnList.Location = new System.Drawing.Point(12, 124);
             this.btnList.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(180, 50);
+            this.btnList.Size = new System.Drawing.Size(142, 38);
             this.btnList.TabIndex = 1;
             this.btnList.Text = "Thư Viện";
             this.btnList.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -350,10 +446,10 @@
             this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnHome.Location = new System.Drawing.Point(12, 113);
+            this.btnHome.Location = new System.Drawing.Point(12, 86);
             this.btnHome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(180, 50);
+            this.btnHome.Size = new System.Drawing.Size(142, 33);
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -381,6 +477,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.pnTop.ResumeLayout(false);
             this.pnBottom.ResumeLayout(false);
             this.pnBottom.PerformLayout();
@@ -413,6 +510,10 @@
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Button btnLogOut;
+        private Guna.UI2.WinForms.Guna2Button btnAdmin;
+        private Guna.UI2.WinForms.Guna2Button btnUserManager;
+        private Guna.UI2.WinForms.Guna2Button btnTheLoai;
     }
 }
 
