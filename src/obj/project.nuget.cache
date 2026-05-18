@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "+w7xl8Yy6Js=",
+  "success": true,
+  "projectFilePath": "d:\\MEDIA\\PROJECT\\ThreeM\\src\\src.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\NEMESIS\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\NEMESIS\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\NEMESIS\\.nuget\\packages\\mysqlconnector\\2.5.0\\mysqlconnector.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
